@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="controller.IzvelneController">
+   <children>
+      <Button fx:id="button_sanemt" layoutX="230.0" layoutY="100.0" mnemonicParsing="false" onAction="#sanemtClicked" prefHeight="69.0" prefWidth="140.0" text="Saņemt">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <Button fx:id="button_nosutit" layoutX="230.0" layoutY="230.0" mnemonicParsing="false" onAction="#nosutitClicked" prefHeight="69.0" prefWidth="140.0" text="Nosūtīt">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
