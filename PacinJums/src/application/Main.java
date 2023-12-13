@@ -23,6 +23,5 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		launch(args);
-		System.out.println("Ja tu šo lasi, tad tu jau zini kas esi...");
 	}
 }
