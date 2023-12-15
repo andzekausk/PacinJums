@@ -25,10 +25,9 @@ public class Employee extends Person {
 		super(name, surname, personCode, phoneNumber, emailAdress);
 		setID();
 	}
-	
 	public String toString () {
 		//ID: super(Person)
-		String result = ID + ":" + super.toString();
+		String result = "ID:" + ID + " " + super.toString();
 		return result;
 	}
 }
