@@ -59,7 +59,8 @@ public class Parcel {
 	
 	//setters
 	public void setParcel_ID() {
-		parcel_ID = ;
+		parcel_ID = " " + LocalDateTime.now()+counter;
+		counter++;
 	}
 	public void setParcelMachine(ParcelMachine parcelMachine) {
 		if(parcelMachine != null) {
@@ -98,7 +99,7 @@ public class Parcel {
 			this.size = size;
 		}
 		else {
-			this.size = Size.other;
+			this.size = Size.S;
 		}
 	}
 	public void setIsPaid(boolean isPaid) {
@@ -112,7 +113,7 @@ public class Parcel {
 			this.status = status;
 		}
 		else {
-			this.status = Status.other;
+			this.status = Status.Lost;
 		}
 	}
 	public void setPlacedBySender(boolean isPlacedBySender) {
