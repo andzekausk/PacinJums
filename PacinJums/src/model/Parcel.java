@@ -1,5 +1,7 @@
 package model;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class Parcel {
 	private String parcel_ID;
@@ -14,7 +16,9 @@ public class Parcel {
 	private Status status;
 	private boolean isPlacedBySender;
 	private boolean isReturnable;
-	private String returnCode;
+	private int returnCode;
+	private static ArrayList<String> ActiveReturnCodes = new ArrayList<String>();
+	Random mansRandoms = new Random();
 	
 	//getters
 	public String getParcel_ID() {
@@ -53,7 +57,7 @@ public class Parcel {
 	public boolean getisReturnable() {
 		return isReturnable;
 	}
-	public String getReturnCode() {
+	public int getReturnCode() {
 		return returnCode;
 	}
 	
@@ -122,8 +126,19 @@ public class Parcel {
 	public void setReturnable(boolean isReturnable) { //nevajag pārbaudi
 		this.isReturnable = isReturnable;
 	}
-	public void setReturnCode(String returnCode) {
-		this.returnCode = returnCode;
+	public void setReturnCode() {
+		boolean isFound = false;
+		returnCode = mansRandoms.nextInt(4);
+		for (String tempCode: ActiveReturnCodes) {
+			if(tempCode.equals(returnCode)) {
+				isFound = true;
+			}
+		}
+		if(isFound == false) {
+		}
+		else {
+			returnCode = mansRandoms.nextInt(4);
+		}
 	}
 	
 	//konstruktori
