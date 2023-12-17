@@ -1,9 +1,9 @@
 package model;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 public class Parcel {
 	private String parcel_ID;
-	public static long counter;
+	public static long counter = 1;
 	private ParcelMachine parcelMachine;
 	private Client sender;
 	private Client reciever;
@@ -58,11 +58,11 @@ public class Parcel {
 	}
 	
 	//setters
-	public void setParcel_ID() {
-		parcel_ID = " " + LocalDateTime.now()+counter;
+	public void setParcel_ID() { //veido ID kā String
+		parcel_ID = "ID-" + LocalDate.now()+"_"+counter;
 		counter++;
 	}
-	public void setParcelMachine(ParcelMachine parcelMachine) {
+	public void setParcelMachine(ParcelMachine parcelMachine) { //pārbauda tikai vai nav null
 		if(parcelMachine != null) {
 			this.parcelMachine = parcelMachine;
 		}
@@ -70,7 +70,7 @@ public class Parcel {
 			this.parcelMachine = new ParcelMachine();
 		}
 	}
-	public void setSender(Client sender) {
+	public void setSender(Client sender) { //pārbauda tikai vai nav null
 		if(sender !=null) {
 			this.sender = sender;
 		}
@@ -78,7 +78,7 @@ public class Parcel {
 			this.sender = new Sender();
 		}
 	}
-	public void setReciever(Client reciever) {
+	public void setReciever(Client reciever) { //pārbauda tikai vai nav null
 		if(reciever !=null) {
 			this.reciever = reciever;			
 		}
@@ -86,7 +86,7 @@ public class Parcel {
 			this.reciever = new Reciever();
 		}
 	}
-	public void setDriver(Driver driver) {
+	public void setDriver(Driver driver) { //pārbauda tikai vai nav null
 		if(driver !=null) {
 		this.driver = driver;
 			}
@@ -102,10 +102,10 @@ public class Parcel {
 			this.size = Size.S;
 		}
 	}
-	public void setIsPaid(boolean isPaid) {
+	public void setIsPaid(boolean isPaid) { //nevajag pārbaudi
 		this.isPaid = isPaid;
 	}
-	public void setRecievedHome(boolean recievedHome) {
+	public void setRecievedHome(boolean recievedHome) { //nevajag pārbaudi
 		this.recievedHome = recievedHome;
 	}
 	public void setStatus(Status status) {
@@ -116,10 +116,10 @@ public class Parcel {
 			this.status = Status.Lost;
 		}
 	}
-	public void setPlacedBySender(boolean isPlacedBySender) {
+	public void setPlacedBySender(boolean isPlacedBySender) { //nevajag pārbaudi
 		this.isPlacedBySender = isPlacedBySender;
 	}
-	public void setReturnable(boolean isReturnable) {
+	public void setReturnable(boolean isReturnable) { //nevajag pārbaudi
 		this.isReturnable = isReturnable;
 	}
 	public void setReturnCode(String returnCode) {
@@ -134,10 +134,10 @@ public class Parcel {
 		setSender();
 		setReciever();
 		setDriver();
-		setSize();
+		setSize(Size.S);
 		setIsPaid(false);
 		setRecievedHome(false);
-		setStatus();
+		setStatus(Status.Lost);
 		setPlacedBySender(false);
 		setReturnable(false);
 		setReturnCode();
