@@ -127,18 +127,27 @@ public class Parcel {
 		this.isReturnable = isReturnable;
 	}
 	public void setReturnCode() {
-		boolean isFound = false;
-		returnCode = mansRandoms.nextInt(4);
-		for (String tempCode: ActiveReturnCodes) {
-			if(tempCode.equals(returnCode)) {
-				isFound = true;
-			}
-		}
-		if(isFound == false) {
-		}
-		else {
+		do {
+			boolean isFound = false;
 			returnCode = mansRandoms.nextInt(4);
-		}
+			for (String tempCode: ActiveReturnCodes) {
+				if(tempCode.equals(returnCode)) {
+					isFound = true;
+				}
+			}
+		} while (isFound == true);
+//		boolean isFound = false;
+//		returnCode = mansRandoms.nextInt(4);
+//		for (String tempCode: ActiveReturnCodes) {
+//			if(tempCode.equals(returnCode)) {
+//				isFound = true;
+//			}
+//		}
+//		if(isFound == false) {
+//		}
+//		else {
+//			returnCode = mansRandoms.nextInt(4);
+//		}
 	}
 	
 	//konstruktori
