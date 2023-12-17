@@ -16,7 +16,7 @@ public class Parcel {
 	private Status status;
 	private boolean isPlacedBySender;
 	private boolean isReturnable;
-	private int returnCode;
+	private String returnCode;
 	private static ArrayList<String> ActiveReturnCodes = new ArrayList<String>();
 	Random mansRandoms = new Random();
 	
@@ -57,7 +57,7 @@ public class Parcel {
 	public boolean getisReturnable() {
 		return isReturnable;
 	}
-	public int getReturnCode() {
+	public String getReturnCode() {
 		return returnCode;
 	}
 	
@@ -127,27 +127,16 @@ public class Parcel {
 		this.isReturnable = isReturnable;
 	}
 	public void setReturnCode() {
+		boolean isFound = false;
 		do {
-			boolean isFound = false;
-			returnCode = mansRandoms.nextInt(4);
+			isFound = false;
+			String returnCode = "" + mansRandoms.nextLong(100000,1000000);
 			for (String tempCode: ActiveReturnCodes) {
 				if(tempCode.equals(returnCode)) {
 					isFound = true;
 				}
 			}
 		} while (isFound == true);
-//		boolean isFound = false;
-//		returnCode = mansRandoms.nextInt(4);
-//		for (String tempCode: ActiveReturnCodes) {
-//			if(tempCode.equals(returnCode)) {
-//				isFound = true;
-//			}
-//		}
-//		if(isFound == false) {
-//		}
-//		else {
-//			returnCode = mansRandoms.nextInt(4);
-//		}
 	}
 	
 	//konstruktori
