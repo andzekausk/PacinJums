@@ -3,6 +3,7 @@ package application;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.Client;
+import model.Company;
 import model.Driver;
 import model.Employee;
 import model.Transport;
@@ -43,5 +44,10 @@ public class Main extends Application {
 		Client cl2 = new Client("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80");
 		System.out.println(cl1);
 		System.out.println(cl2);
+		Company comp1 = new Company();
+		Company comp2 = new Company("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80",
+				"Amishi", "LV00121231232");
+		System.out.println(comp1);
+		System.out.println(comp2);
 	}
 }

@@ -19,7 +19,7 @@ public class Client extends Person{
 	}
 	
 	public static void setSenderAddress(String inputSenderAddress) {
-		if(senderAddress != null && senderAddress.length() > 3 && senderAddress.matches("^\\s*\\S+(?:\\s+\\S+){2}"))
+		if(inputSenderAddress != null && inputSenderAddress.length() > 3 && inputSenderAddress.matches("[A-Za-z]{1,20}\s[A-Za-z]{1,20}\s[0-9]{1,4}"))
 		senderAddress = inputSenderAddress;
 		else {
 			senderAddress = "Saņēmēja adrese";
@@ -39,7 +39,7 @@ public class Client extends Person{
 	}
 	
 	public static void setRecieverAddress(String inputRecieverAddress) {
-		if(recieverAddress != null && recieverAddress.length() > 3 && recieverAddress.matches("^\\s*\\S+(?:\\s+\\S+){2}"))
+		if(inputRecieverAddress != null && inputRecieverAddress.length() > 3 && inputRecieverAddress.matches("[A-Za-z]{1,20}\s[A-Za-z]{1,20}\s[0-9]{1,4}"))
 			recieverAddress = inputRecieverAddress;
 		else {
 			recieverAddress = "Sutītāja adrese";
