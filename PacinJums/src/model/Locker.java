@@ -1,9 +1,5 @@
 package model;
 
-//abstract class Parcel{
-//	
-//}
-
 public class Locker {
 	private int lockerID;
 	private int lockerNumber;

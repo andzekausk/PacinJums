@@ -2,10 +2,10 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
-
-abstract class Client{}
-
-abstract class Driver{}
+//
+//abstract class Client{}
+//
+//abstract class Driver{}
 
 public class Parcel {
 	private String parcel_ID;
