@@ -1,11 +1,12 @@
 package model;
 
-abstract class Parcel{
-	
-}
+//abstract class Parcel{
+//	
+//}
 
 public class Locker {
 	private int lockerID;
+	private int lockerNumber;
     public static int counter = 1;
     private Size size;
     private Parcel parcel;
@@ -18,6 +19,16 @@ public class Locker {
 	public void setLockerID() {
 		this.lockerID = counter;
 		counter++;
+	}
+	
+	public int getLockerNumber() {
+		return lockerNumber;
+	}
+	public void setLockerNumber(int lockerNumber) {
+		if(lockerNumber>0)
+			this.lockerNumber = lockerNumber;
+		else
+			this.lockerNumber = 0;
 	}
 	public Size getSize() {
 		return size;
