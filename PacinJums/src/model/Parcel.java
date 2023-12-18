@@ -3,6 +3,10 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Random;
 
+abstract class Client{}
+
+abstract class Driver{}
+
 public class Parcel {
 	private String parcel_ID;
 	public static long counter = 1;
@@ -78,25 +82,25 @@ public class Parcel {
 		if(sender !=null) {
 			this.sender = sender;
 		}
-		else {
-			this.sender = new Sender();
-		}
+//		else {
+//			this.sender = new Client();
+//		}
 	}
 	public void setReciever(Client reciever) { //pārbauda tikai vai nav null
 		if(reciever !=null) {
 			this.reciever = reciever;			
 		}
-		else {
-			this.reciever = new Reciever();
-		}
+//		else {
+//			this.reciever = new Client();
+//		}
 	}
 	public void setDriver(Driver driver) { //pārbauda tikai vai nav null
 		if(driver !=null) {
 		this.driver = driver;
 			}
-		else {
-			this.driver = new Driver();
-			}
+//		else {
+//			this.driver = new Driver();
+//			}
 		}
 	public void setSize(Size size) {
 		if(size !=null) {
@@ -143,10 +147,10 @@ public class Parcel {
 	
 	public Parcel() {
 		setParcel_ID();
-		setParcelMachine();
-		setSender();
-		setReciever();
-		setDriver();
+		setParcelMachine(null);
+		setSender(null);
+		setReciever(null);
+		setDriver(null);
 		setSize(Size.S);
 		setIsPaid(false);
 		setRecievedHome(false);
@@ -169,12 +173,12 @@ public class Parcel {
 		setStatus(status);
 		setPlacedBySender(isPlacedBySender);
 		setReturnable(isReturnable);
-		setReturnCode(returnCode);
+		setReturnCode();
 	}
 	
 	//toString
 	public String toString() {
-		String result = "Parcel ID: " + parcel_ID + "| parcelMachine: " + parcelMachine + "| sender: " + sender + "| reciever"
+		return "Parcel ID: " + parcel_ID + "| parcelMachine: " + parcelMachine + "| sender: " + sender + "| reciever"
 				+ " " + reciever + "| Driver: " + driver + "| Size: " + size + "| isPaid?: "
 	+ isPaid + "| recievedHome?: " + recievedHome + "| Status: " + status + "| isPlacedBySender?: " + isPlacedBySender +
 	"| isReturnable?: " + isReturnable + "| ReturnCode: " + returnCode + "|||";

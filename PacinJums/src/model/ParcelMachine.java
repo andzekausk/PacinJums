@@ -1,13 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+
 public class ParcelMachine {
 	private String pm_ID;
 	private static long counter;
 	private ParcelMachineLocation parcelMachineLocation;
 	private String address;
-	private static ArrayList<Locker> allSLockers = new ArrayList<Locker>();
-	private static ArrayList<Locker> allMLockers = new ArrayList<Locker>();
-	private static ArrayList<Locker> allLLockers = new ArrayList<Locker>();
+	private ArrayList<Locker> allLockers = new ArrayList<Locker>();
+	private int sSlotAmount, mSlotAmount, lSlotAmount;
 	
 	//getters
 	public String getPm_ID() {
@@ -19,14 +20,31 @@ public class ParcelMachine {
 	public String getAddress() {
 		return address;
 	}
-	public static ArrayList<Locker> getAllSLockers() {
-		return allSLockers;
+	public ArrayList<Locker> getAllLockers() {
+		return allLockers;
 	}
-	public static ArrayList<Locker> getAllMLockers() {
-		return allMLockers;
+	
+
+	public int getsSlotAmount() {
+		return sSlotAmount;
 	}
-	public static ArrayList<Locker> getAllLLockers() {
-		return allLLockers;
+	public void setsSlotAmount(int sSlotAmount) {
+		this.sSlotAmount = sSlotAmount;
+	}
+	public int getmSlotAmount() {
+		return mSlotAmount;
+	}
+	public void setmSlotAmount(int mSlotAmount) {
+		this.mSlotAmount = mSlotAmount;
+	}
+	public int getlSlotAmount() {
+		return lSlotAmount;
+	}
+	public void setlSlotAmount(int lSlotAmount) {
+		this.lSlotAmount = lSlotAmount;
+	}
+	public void setPm_ID(String pm_ID) {
+		this.pm_ID = pm_ID;
 	}
 	//setters
 	public void setParcelMachineLocation(ParcelMachineLocation parcelMachineLocation) {
@@ -38,21 +56,15 @@ public class ParcelMachine {
 		counter++;
 	}
 	public void setAddress(String address) {
-		if(address !=null && address.matches("[a-zA-Z]+\\s*+,\\s*[a-zA-Z]+\\s*+[0-9]{3}-[0-9]{3}")) {
+		if(address !=null && address.matches("^[ a-zA-Z]+[0-9a-z]{1,5}[- ]{1}[0-9a-zA-Z]{0,5}$")) {
 			this.address = address;
 		}
 		else {
 			this.address = "--- incorrect address ---";
 		}
 	}
-	public static void setAllSLockers(ArrayList<Locker> allSLockers) {
-		ParcelMachine.allSLockers = allSLockers;
-	}
-	public static void setAllMLockers(ArrayList<Locker> allMLockers) {
-		ParcelMachine.allMLockers = allMLockers;
-	}
-	public static void setAllLLockers(ArrayList<Locker> allLLockers) {
-		ParcelMachine.allLLockers = allLLockers;
+	public void setAllLockers(ArrayList<Locker> allLockers) {
+		this.allLockers = allLockers;
 	}
 	
 	
