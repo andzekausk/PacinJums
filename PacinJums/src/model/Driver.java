@@ -38,7 +38,7 @@ public class Driver extends Employee{
 
 	public String toString () {
 		//ID: super() | Transport: , Working Region: .
-		String result = super.toString() + "Transports: " + transport + "Apkalpojamais Regions: "
+		String result = super.toString() + "   |   Transports: " + transport + "  |   Apkalpojamais Regions: "
 				+ workingRegion;
 		return result;
 	}

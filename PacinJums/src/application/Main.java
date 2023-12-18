@@ -2,6 +2,7 @@ package application;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
+import model.Client;
 import model.Driver;
 import model.Employee;
 import model.Transport;
@@ -38,5 +39,9 @@ public class Main extends Application {
 				Transport.KK_4991, WorkingRegion.Riga);
 		System.out.println(dr1);
 		System.out.println(dr2);
+		Client cl1 = new Client();
+		Client cl2 = new Client("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80");
+		System.out.println(cl1);
+		System.out.println(cl2);
 	}
 }
