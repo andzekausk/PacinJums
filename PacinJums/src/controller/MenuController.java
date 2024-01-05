@@ -39,7 +39,7 @@ public class MenuController {
 	
 	
 	public void sanemt1(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("application.Sanemsana1.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sanemsana1.fxml"));
 		root = loader.load();
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
