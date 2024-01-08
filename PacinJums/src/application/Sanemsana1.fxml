@@ -1,20 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Sanemsana1Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #f5e373;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Sanemsana1Controller">
    <children>
-      <Label alignment="CENTER" layoutY="120.0" prefHeight="80.0" prefWidth="1200.0" text="Saņemt sūtījumu">
+      <Label alignment="CENTER" layoutY="120.0" prefHeight="80.0" prefWidth="1200.0" text="Saņemt sūtījumu" textFill="#c63535">
          <font>
             <Font name="System Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="1.0" layoutY="240.0" prefHeight="40.0" prefWidth="1200.0" text="Ievadi saņemšanas kodu">
+      <Label alignment="CENTER" layoutX="1.0" layoutY="240.0" prefHeight="40.0" prefWidth="1200.0" text="Ievadi saņemšanas kodu" textFill="#cd3838">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
       </Label>
+      <TextField fx:id="kodaVieta" layoutX="490.0" layoutY="291.0" prefHeight="30.0" prefWidth="220.0" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="491.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></TextField>
+      <Button fx:id="poga1" layoutX="485.0" layoutY="368.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="1" AnchorPane.leftAnchor="500.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga2" layoutX="587.0" layoutY="368.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="2" AnchorPane.leftAnchor="587.0" AnchorPane.rightAnchor="588.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga3" layoutX="676.0" layoutY="368.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="3" AnchorPane.rightAnchor="500.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga4" layoutX="485.0" layoutY="419.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="4" AnchorPane.leftAnchor="500.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga5" layoutX="587.0" layoutY="419.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="5">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga6" layoutX="676.0" layoutY="419.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="6" AnchorPane.rightAnchor="500.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga7" layoutX="485.0" layoutY="472.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="7" AnchorPane.leftAnchor="500.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga8" layoutX="587.0" layoutY="472.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="8">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga9" layoutX="676.0" layoutY="472.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="9">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="poga0" layoutX="500.0" layoutY="528.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="pogaDzest" layoutX="548.0" layoutY="528.0" mnemonicParsing="false" onAction="#dzestVienu" text="Dzēst">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="pogaDzestVisu" layoutX="618.0" layoutY="528.0" mnemonicParsing="false" onAction="#dzestVisu" text="Dzēst visu!" AnchorPane.rightAnchor="500.0">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font></Button>
+      <Button fx:id="pogaTurpinat" alignment="CENTER" defaultButton="true" layoutX="490.0" layoutY="584.0" mnemonicParsing="false" onAction="#sanemt2" prefHeight="30.0" prefWidth="220.0" text="Turpināt!">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

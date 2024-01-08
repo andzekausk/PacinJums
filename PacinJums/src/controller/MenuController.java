@@ -47,7 +47,7 @@ public class MenuController {
 		stage.show();
 	}
 	public void sanemt2(MouseEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Sanemsana1.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sanemsana1.fxml"));
 		root = loader.load();
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
@@ -56,7 +56,7 @@ public class MenuController {
 	}
 	
 	public void sutit1(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Sutisana1.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana1.fxml"));
 		root = loader.load();
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);
@@ -65,7 +65,7 @@ public class MenuController {
 	}
 	
 	public void sutit2(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader(getClass().getResource("Sutisana1.fxml"));
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana1.fxml"));
 		root = loader.load();
 		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		scene = new Scene(root);

@@ -5,12 +5,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="controller.MenuController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
    <children>
-      <AnchorPane prefHeight="800.0" prefWidth="1200.0" AnchorPane.leftAnchor="0.0">
+      <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #f5e373;" AnchorPane.leftAnchor="0.0">
          <children>
-            <Label alignment="CENTER" layoutY="120.0" prefHeight="80.0" prefWidth="1200.0" text="Sveicināti!" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <Label alignment="CENTER" layoutY="120.0" prefHeight="80.0" prefWidth="1200.0" text="Sveicināti!" textFill="#c63535" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                <font>
                   <Font name="System Bold Italic" size="36.0" />
                </font>
