@@ -9,6 +9,7 @@ import model.Employee;
 import model.Transport;
 import model.WorkingRegion;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
@@ -26,6 +27,8 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		stage.setTitle("PacinJums");
+		Image icon = new Image("/media/pacinjums1logo.png");
+		stage.getIcons().add(icon);
 	}
 	
 	public static void main(String[] args) {

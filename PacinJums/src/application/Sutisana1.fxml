@@ -5,6 +5,8 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -90,6 +92,14 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Label>
+            <ImageView fx:id="pogaAtpakal" fitHeight="150.0" fitWidth="200.0" layoutX="47.0" layoutY="45.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../arrow_back.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="pogaA" layoutX="242.0" layoutY="580.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="a" />
+            <Button fx:id="pogaB" layoutX="331.0" layoutY="580.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="b" />
+            <Button fx:id="pogaC" layoutX="418.0" layoutY="580.0" mnemonicParsing="false" onAction="#uzspiestPogu" text="c" />
          </children>
       </AnchorPane>
    </children>

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 
@@ -35,6 +36,7 @@ public class Sanemsana1Controller {
 	
 	public void dzestVisu (ActionEvent event) throws IOException {
 		kodaVieta.setText("");
+		//kodaVieta.deleteText(0, kodaVieta.getText().charAt(kodaVieta.getText().length()-1)); -- nestrādā for some reason
 	}
 	
 	public void sanemt2(ActionEvent event) throws IOException {
@@ -50,5 +52,14 @@ public class Sanemsana1Controller {
 		else {
 			System.out.println("Kļūda");
 		}
+	}
+	
+	public void atpakal(MouseEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/MenuScene.fxml"));
+		root = loader.load();
+		stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
 	}
 }
