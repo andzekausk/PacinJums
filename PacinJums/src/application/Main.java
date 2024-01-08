@@ -27,7 +27,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		stage.setTitle("PacinJums");
-		Image icon = new Image("/media/pacinjums1logo.png");
+		Image icon = new Image("/pacinjums1logo.png");
 		stage.getIcons().add(icon);
 	}
 	
@@ -53,5 +53,7 @@ public class Main extends Application {
 				"Amishi", "LV00121231232");
 		System.out.println(comp1);
 		System.out.println(comp2);
+		
+		
 	}
 }

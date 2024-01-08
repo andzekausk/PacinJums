@@ -77,9 +77,9 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <ImageView fx:id="bildeAtpakal" fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="50.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bildeAtpakal" fitHeight="80.0" fitWidth="80.0" layoutX="51.0" layoutY="120.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../arrow_back.png" />
+            <Image url="@../arrow_back_red.png" />
          </image>
       </ImageView>
    </children>
