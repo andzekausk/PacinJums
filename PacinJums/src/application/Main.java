@@ -1,11 +1,18 @@
 package application;
 	
+import java.io.ObjectInputFilter.Status;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.Client;
 import model.Company;
 import model.Driver;
 import model.Employee;
+import model.Parcel;
+import model.ParcelMachine;
+import model.ParcelMachineLocation;
+import model.ParcelStatus;
+import model.Size;
 import model.Transport;
 import model.WorkingRegion;
 import javafx.scene.Scene;
@@ -32,8 +39,18 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
+		Client sender1 = new Client("Cils", "Veks", "301199-11111", "21234567", "hallo@gmail.com", "Lielais prospekts 20");
+		Client reciever1 = new Client("Pers", "Ona", "301100-22222", "22345678", "ahoy@gmail.com", "mazais prospekts 20");
+		Parcel parcel1 = new Parcel(pm1, sender1, reciever1, Size.S, true, false, ParcelStatus.Pending, true);
+		System.out.println(parcel1);
+		System.out.println(pm1);
+		pm1.placeParcel(parcel1);
+		System.out.println(pm1);
+		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
+		launch(args);
+
 		System.out.println("Parbaudes");
 		Employee test1 = new Employee();
 		Employee test2 = new Employee("Adolfs", "Sula", "120224-11223","23232323", "epasts@epasts.lv");
@@ -53,7 +70,5 @@ public class Main extends Application {
 				"Amishi", "LV00121231232");
 		System.out.println(comp1);
 		System.out.println(comp2);
-		
-		
 	}
 }
