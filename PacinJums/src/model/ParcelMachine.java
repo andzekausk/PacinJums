@@ -153,8 +153,10 @@ public class ParcelMachine {
 	
 	public void placeParcel(Parcel parcel) {
 		if(getLockersBySize(parcel.getSize(), getEmptyLockers())!=null) {
-			getEmptyLockers().get(0).setUnlockCode(generateUnlockCode());
-			getEmptyLockers().get(0).setParcel(parcel);
+			//getEmptyLockers().get(0).setUnlockCode(generateUnlockCode());
+			//getEmptyLockers().get(0).setParcel(parcel);
+			getLockersBySize(parcel.getSize(), getEmptyLockers()).get(0).setUnlockCode(generateUnlockCode());
+			getLockersBySize(parcel.getSize(), getEmptyLockers()).get(0).setParcel(parcel);
 		}
 	}
 	public ArrayList<Locker> getLockersBySize(Size size, ArrayList<Locker> lockerList){
