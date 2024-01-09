@@ -61,14 +61,14 @@ public class Main extends Application {
 				Transport.KK_4991, WorkingRegion.Riga);
 		System.out.println(dr1);
 		System.out.println(dr2);
-		Client cl1 = new Client();
-		Client cl2 = new Client("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80");
-		System.out.println(cl1);
-		System.out.println(cl2);
-		Company comp1 = new Company();
-		Company comp2 = new Company("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80",
-				"Amishi", "LV00121231232");
-		System.out.println(comp1);
-		System.out.println(comp2);
+//		Client cl1 = new Client();
+//		Client cl2 = new Client("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80");
+//		System.out.println(cl1);
+//		System.out.println(cl2);
+//		Company comp1 = new Company();
+//		Company comp2 = new Company("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80",
+//				"Amishi", "LV00121231232");
+//		System.out.println(comp1);
+//		System.out.println(comp2);
 	}
 }

@@ -44,8 +44,7 @@ public class Sutisana1Controller {
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-			
-			Client jaunsKlients = new Client(nosutVards.getText(), null, null, nosutMob.getText(), nosutEpasts.getText(), null, null);
+			Client jaunsKlients = new Client(nosutVards.getText(), null, null, nosutMob.getText(), nosutEpasts.getText(), null);
 			System.out.println(jaunsKlients);
 		}
 	}

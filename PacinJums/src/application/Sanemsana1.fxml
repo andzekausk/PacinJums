@@ -15,7 +15,7 @@
             <Font name="System Bold Italic" size="36.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" layoutX="1.0" layoutY="240.0" prefHeight="40.0" prefWidth="1200.0" text="Ievadi saņemšanas kodu" textFill="#cd3838">
+      <Label fx:id="label1" alignment="CENTER" layoutX="1.0" layoutY="240.0" prefHeight="40.0" prefWidth="1200.0" text="Ievadi saņemšanas kodu" textFill="#cd3838">
          <font>
             <Font name="System Italic" size="18.0" />
          </font>
@@ -77,7 +77,7 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <ImageView fx:id="bildeAtpakal" fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="120.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="bildeAtpakal" fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="50.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../media/arrow_red.png" />
          </image>
