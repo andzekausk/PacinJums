@@ -5,6 +5,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
@@ -16,26 +18,57 @@
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
-            <Button fx:id="sanemsanasPoga" alignment="CENTER" layoutX="350.0" layoutY="450.0" mnemonicParsing="false" onAction="#sanemt1" prefHeight="30.0" prefWidth="80.0" text="SAŅEMT" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="771.0">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="sutisanasPoga" alignment="CENTER" layoutX="550.0" layoutY="450.0" mnemonicParsing="false" onAction="#sutit1" prefHeight="30.0" prefWidth="80.0" text="SŪTĪT" AnchorPane.leftAnchor="560.0" AnchorPane.rightAnchor="560.0">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Button>
-            <Button fx:id="atgriesanasPoga" alignment="CENTER" layoutX="800.0" layoutY="450.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="ATGRIEZT" AnchorPane.rightAnchor="350.0">
-               <font>
-                  <Font name="System Italic" size="14.0" />
-               </font>
-            </Button>
             <ImageView fitHeight="113.0" fitWidth="172.0" layoutX="519.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../pacinjums1logo.png" />
+                  <Image url="@../../media/pacinjums1logo.png" />
                </image>
             </ImageView>
+            <HBox layoutX="300.0" layoutY="309.0" prefHeight="300.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../media/sanemt.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="sanemsanasPoga" alignment="CENTER" mnemonicParsing="false" onAction="#sanemt1" prefHeight="30.0" prefWidth="80.0" text="SAŅEMT">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../media/sutit.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="sutisanasPoga" alignment="CENTER" mnemonicParsing="false" onAction="#sutit1" prefHeight="30.0" prefWidth="80.0" text="SŪTĪT">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../media/atgriezt.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="atgriesanasPoga" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="ATGRIEZT">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
          </children>
       </AnchorPane>
    </children>
