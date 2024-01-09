@@ -21,7 +21,7 @@ public class Sutisana1Controller {
 	private RadioButton radioButtonS, radioButtonM, radioButtionL;
 	
 	@FXML
-	private TextField nosutVards, nosutMob, nosutEpasts, sanemVards, sanemMob, sanemEpasts;
+	private TextField nosutVards, nosutUzvards, nosutMob, nosutEpasts, sanemVards, sanemUzvards, sanemMob, sanemEpasts;
 	
 	@FXML
 	private Label vietaZinai;
@@ -34,7 +34,7 @@ public class Sutisana1Controller {
 	private Parent root;
 	
 	public void sutit(ActionEvent event) throws IOException {
-		if (nosutVards.getText()== "" || nosutMob.getText()== "" || nosutEpasts.getText()== "") {
+		if (nosutVards.getText()== "" || nosutUzvards.getText()== "" || nosutMob.getText()== "" || nosutEpasts.getText()== "") {
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
@@ -68,4 +68,5 @@ public class Sutisana1Controller {
 		Button poga = (Button) event.getSource();
 		nosutMob.setText(nosutMob.getText()+ poga.getText());
 	}
+	
 }

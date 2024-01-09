@@ -53,5 +53,7 @@ public class Main extends Application {
 				"Amishi", "LV00121231232");
 		System.out.println(comp1);
 		System.out.println(comp2);
+		
+		
 	}
 }
