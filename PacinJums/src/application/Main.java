@@ -27,7 +27,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		stage.setTitle("PacinJums");
-		Image icon = new Image("/pacinjums1logo1.png");
+		Image icon = new Image("/pacinjums1logo.png");
 		stage.getIcons().add(icon);
 	}
 	
