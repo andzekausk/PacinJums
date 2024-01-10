@@ -45,7 +45,7 @@ public class Sanemsana1Controller extends Controller{
 	public void sanemt2(ActionEvent event) throws IOException {
 		String pareizais_kods = "0990";
 		if (kodaVieta.getText().matches(pareizais_kods)) {
-		changeScene(pogaTurpinat, "/application/Hmmm.fxml");
+		changeScene(pogaTurpinat, "/application/Sanemsana2.fxml");
 //		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sanemsana2.fxml"));
 //		root = loader.load();
 //		stage = (Stage)((Node)event.getSource()).getScene().getWindow();

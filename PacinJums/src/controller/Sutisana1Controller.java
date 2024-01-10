@@ -33,19 +33,26 @@ public class Sutisana1Controller {
 	private Scene scene;
 	private Parent root;
 	
+	
 	public void sutit(ActionEvent event) throws IOException {
-		if (nosutVards.getText()== "" || nosutUzvards.getText()== "" || nosutMob.getText()== "" || nosutEpasts.getText()== "") {
+		if (nosutVards.getText().isEmpty() || nosutUzvards.getText().isEmpty() || nosutMob.getText().isEmpty() || nosutEpasts.getText().isEmpty()) {
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
+			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), null, nosutMob.getText(), nosutEpasts.getText(), null);
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana2.fxml"));
 			root = loader.load();
+			
+			Sutisana2Controller sutisana2Controller = loader.getController();
+			sutisana2Controller.setJaunsKlients(jaunsKlients);
+			
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
-			Client jaunsKlients = new Client(nosutVards.getText(), null, null, nosutMob.getText(), nosutEpasts.getText(), null);
-			System.out.println(jaunsKlients);
+			System.out.println(jaunsKlients);	
+
 		}
 	}
 	public void atpakal(MouseEvent event) throws IOException {

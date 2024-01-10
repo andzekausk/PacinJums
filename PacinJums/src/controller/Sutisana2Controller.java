@@ -1,13 +1,20 @@
 package controller;
 
-import javafx.event.ActionEvent;
+
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
+import javafx.scene.control.Label;
 import model.Client;
 
 public class Sutisana2Controller {
 	@FXML
-	private TextField aizpilditsVards, aizpilditsUzvards, aizpilditsMob, aizpilditsEpasts;
-	
+	private Label aizpilditsVards, aizpilditsUzvards, aizpilditsMob, aizpilditsEpasts;
+
+	 
+	public void setJaunsKlients(Client jaunsKlients) {
+        aizpilditsVards.setText(jaunsKlients.getName());
+        aizpilditsUzvards.setText(jaunsKlients.getSurname());
+        aizpilditsMob.setText(jaunsKlients.getPhoneNumber());
+        aizpilditsEpasts.setText(jaunsKlients.getEmailAdress());
+    }
 	
 }
