@@ -115,7 +115,7 @@
                               <Insets bottom="20.0" />
                            </VBox.margin>
                         </TextField>
-                        <TextField promptText="Uzvārds">
+                        <TextField fx:id="sanemUzvards" promptText="Uzvārds">
                            <VBox.margin>
                               <Insets bottom="20.0" />
                            </VBox.margin>

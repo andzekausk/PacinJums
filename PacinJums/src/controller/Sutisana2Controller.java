@@ -15,6 +15,8 @@ public class Sutisana2Controller {
         aizpilditsUzvards.setText(jaunsKlients.getSurname());
         aizpilditsMob.setText(jaunsKlients.getPhoneNumber());
         aizpilditsEpasts.setText(jaunsKlients.getEmailAdress());
+        
+        
     }
 	
 }
