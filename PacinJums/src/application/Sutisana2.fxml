@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -14,11 +17,11 @@
                   <Font name="System Bold Italic" size="36.0" />
                </font>
             </Label>
-            <VBox layoutX="140.0" layoutY="186.0" prefHeight="364.0" prefWidth="306.0">
+            <VBox layoutX="294.0" layoutY="186.0" prefHeight="171.0" prefWidth="306.0">
                <children>
                   <Label text="Informācija par tevi" textFill="#c63535">
                      <font>
-                        <Font name="System Italic" size="14.0" />
+                        <Font name="System Bold Italic" size="14.0" />
                      </font>
                   </Label>
                   <Label fx:id="aizpilditsVards" text="Vārds" textFill="#c63535">
@@ -43,6 +46,81 @@
                   </Label>
                </children>
             </VBox>
+            <VBox layoutX="696.0" layoutY="186.0" prefHeight="171.0" prefWidth="306.0">
+               <children>
+                  <Label text="Informācija par saņēmēju" textFill="#c63535">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsVards2" text="Vārds" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsUzvards2" text="Uzvārds" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsMob2" text="Mob.tālrunis" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsEpasts2" text="Epasts" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <RadioButton fx:id="poga1" layoutX="294.0" layoutY="392.0" mnemonicParsing="false" text="Maksāšu es" textFill="#c63535">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="maksashana" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="poga2" layoutX="294.0" layoutY="430.0" mnemonicParsing="false" text="Maksās saņēmējs" textFill="#c63535" toggleGroup="$maksashana">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="poga3" layoutX="696.0" layoutY="390.0" mnemonicParsing="false" text="Iespējot atgriešanu" textFill="#c63535">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="atgrieshana" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="poga4" layoutX="696.0" layoutY="430.0" mnemonicParsing="false" text="Nevēlos atgriešanu" textFill="#c63535" toggleGroup="$atgrieshana">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </RadioButton>
+            <Label layoutX="294.0" layoutY="349.0" text="Maksāšanas iespējas:" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="696.0" layoutY="349.0" text="Atgriešanas opcijas" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <Button fx:id="pogaTurpinat" layoutX="553.0" layoutY="550.0" mnemonicParsing="false" onAction="#dotiesTalak" text="Doties tālāk!">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="pazinojums" alignment="CENTER" layoutX="-6.0" layoutY="502.0" prefHeight="20.0" prefWidth="1206.0" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="14.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
