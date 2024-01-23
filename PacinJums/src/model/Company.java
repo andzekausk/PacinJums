@@ -36,9 +36,9 @@ public class Company extends Client {
 		setPvnNumber(null);
 	}
 
-	public Company(String name, String surname, String personCode, String phoneNumber, String emailAdress,
+	public Company(String name, String surname, /*String personCode,*/ String phoneNumber, String emailAdress,
 			String inputAddress, String inputCompanyName, String inputPvnNumber) {
-		super(name, surname, personCode, phoneNumber, emailAdress, inputAddress);
+		super(name, surname, /*personCode,*/ phoneNumber, emailAdress, inputAddress);
 		setCompanyName(inputCompanyName);
 		setPvnNumber(inputPvnNumber);
 	}

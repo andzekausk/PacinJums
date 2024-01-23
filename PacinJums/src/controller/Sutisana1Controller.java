@@ -39,9 +39,9 @@ public class Sutisana1Controller {
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
-			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), null, nosutMob.getText(), nosutEpasts.getText(), null);
+			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), null);
 			
-			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), null, sanemMob.getText(), sanemEpasts.getText(), null);
+			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), null);
 			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana2.fxml"));
 			root = loader.load();

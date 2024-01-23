@@ -3,7 +3,7 @@ package model;
 public class Person {
 	private String name;
 	private String surname;
-	private String personCode;
+//	private String personCode;
 	private String phoneNumber;
 	private String emailAdress;
 
@@ -31,16 +31,16 @@ public class Person {
 		}
 	}
 
-	public String getPersonCode() {
-		return personCode;
-	}
-
-	public void setPersonCode(String personCode) {
-		if (personCode != null && personCode.matches("[0-9]{6}-[0-9]{5}"))
-			this.personCode = personCode;
-		else
-			this.personCode = "123456-12345";
-	}
+//	public String getPersonCode() {
+//		return personCode;
+//	}
+//
+//	public void setPersonCode(String personCode) {
+//		if (personCode != null && personCode.matches("[0-9]{6}-[0-9]{5}"))
+//			this.personCode = personCode;
+//		else
+//			this.personCode = "123456-12345";
+//	}
 
 	public String getPhoneNumber() {
 		return phoneNumber;
@@ -67,15 +67,15 @@ public class Person {
 	public Person() {
 		setName(null);
 		setSurname(null);
-		setPersonCode(null);
+//		setPersonCode(null);
 		setPhoneNumber(null);
 		setEmailAdress(null);
 	}
 
-	public Person(String name, String surname, String personCode, String phoneNumber, String emailAdress) {
+	public Person(String name, String surname, /*String personCode,*/ String phoneNumber, String emailAdress) {
 		setName(name);
 		setSurname(surname);
-		setPersonCode(personCode);
+//		setPersonCode(personCode);
 		setPhoneNumber(phoneNumber);
 		setEmailAdress(emailAdress);
 
@@ -83,8 +83,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "\nVārds: " + name + ",	Uzvārds: " + surname + ",	Personas kods: " + personCode
-				+ ",	Telefona numurs: " + phoneNumber + ",	Epasts: " + emailAdress;
+		return "\nVārds: " + name + ",	Uzvārds: " + surname +/* ",	Personas kods: " + personCode
+				+*/ ",	Telefona numurs: " + phoneNumber + ",	Epasts: " + emailAdress;
 	}
 
 }

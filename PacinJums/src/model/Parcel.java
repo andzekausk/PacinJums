@@ -1,32 +1,29 @@
 package model;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Parcel {
 	private String parcelID;
 	public static long counter = 1;
-	private ParcelMachine parcelMachine;
+//	private ParcelMachine parcelMachine;
 	private Client sender;
 	private Client reciever;
 //	private Driver driver;
 	private Size size;
 	private boolean isPaid;
-	private boolean recievedHome;
+//	private boolean recievedHome;
 	private ParcelStatus status;
 	private boolean isPlacedBySender;
 //	private boolean isReturnable;
-//	private String returnCode;
-//	private static ArrayList<String> ActiveReturnCodes = new ArrayList<String>();
 	Random mansRandoms = new Random();
 	
 	//getters
 	public String getParcelID() {
 		return parcelID;
 	}
-	public ParcelMachine getparcelMachine() {
-		return parcelMachine;
-	}
+//	public ParcelMachine getparcelMachine() {
+//		return parcelMachine;
+//	}
 	public Client getsender() {
 		return sender;
 	}
@@ -42,9 +39,9 @@ public class Parcel {
 	public boolean getisPaid() {
 		return isPaid;
 	}
-	public boolean getrecievedHome() {
-		return recievedHome;
-	}
+//	public boolean getrecievedHome() {
+//		return recievedHome;
+//	}
 	public ParcelStatus getStatus() {
 		return status;
 	}
@@ -63,14 +60,14 @@ public class Parcel {
 		parcelID = "ID-" + LocalDate.now()+"_"+counter;
 		counter++;
 	}
-	public void setParcelMachine(ParcelMachine parcelMachine) { //pārbauda tikai vai nav null
-		if(parcelMachine != null) {
-			this.parcelMachine = parcelMachine;
-		}
-		else {
-			this.parcelMachine = new ParcelMachine();
-		}
-	}
+//	public void setParcelMachine(ParcelMachine parcelMachine) { //pārbauda tikai vai nav null
+//		if(parcelMachine != null) {
+//			this.parcelMachine = parcelMachine;
+//		}
+//		else {
+//			this.parcelMachine = new ParcelMachine();
+//		}
+//	}
 	public void setSender(Client sender) { //pārbauda tikai vai nav null
 		if(sender !=null) {
 			this.sender = sender;
@@ -106,9 +103,9 @@ public class Parcel {
 	public void setIsPaid(boolean isPaid) { //nevajag pārbaudi
 		this.isPaid = isPaid;
 	}
-	public void setRecievedHome(boolean recievedHome) { //nevajag pārbaudi
-		this.recievedHome = recievedHome;
-	}
+//	public void setRecievedHome(boolean recievedHome) { //nevajag pārbaudi
+//		this.recievedHome = recievedHome;
+//	}
 	public void setStatus(ParcelStatus status) {
 		if(status !=null) {
 			this.status = status;
@@ -140,29 +137,29 @@ public class Parcel {
 	
 	public Parcel() {
 		setParcelID();
-		setParcelMachine(null);
+//		setParcelMachine(null);
 		setSender(null);
 		setReciever(null);
 //		setDriver(null);
 		setSize(Size.S);
 		setIsPaid(false);
-		setRecievedHome(false);
+//		setRecievedHome(false);
 		setStatus(ParcelStatus.Lost);
 		setPlacedBySender(false);
 //		setReturnable(false);
 //		setReturnCode();
 	}
 	
-	public Parcel(ParcelMachine parcelMachine, Client sender, Client reciever, /*Driver driver,*/ Size size, boolean isPaid,
-			boolean recievedHome, ParcelStatus status, boolean isPlacedBySender/*, boolean isReturnable, String returnCode*/) {
+	public Parcel(/*ParcelMachine parcelMachine,*/ Client sender, Client reciever, /*Driver driver,*/ Size size, boolean isPaid,
+			/*boolean recievedHome,*/ ParcelStatus status, boolean isPlacedBySender/*, boolean isReturnable, String returnCode*/) {
 		setParcelID();
-		setParcelMachine(parcelMachine);
+//		setParcelMachine(parcelMachine);
 		setSender(sender);
 		setReciever(reciever);
 //		setDriver(driver);
 		setSize(size);
 		setIsPaid(isPaid);
-		setRecievedHome(recievedHome);
+//		setRecievedHome(recievedHome);
 		setStatus(status);
 		setPlacedBySender(isPlacedBySender);
 //		setReturnable(isReturnable);
@@ -171,9 +168,9 @@ public class Parcel {
 	
 	//toString
 	public String toString() {
-		return "\nParcel ID: " + getParcelID() + "| parcelMachine ID: " + parcelMachine.getPm_ID() + "| sender ID: " + sender.getClientID() + "| reciever ID"
+		return "\nParcel ID: " + getParcelID() + /*"| parcelMachine ID: " + parcelMachine.getPm_ID() +*/ "| sender ID: " + sender.getClientID() + "| reciever ID"
 				+ " " + reciever.getClientID() /*+ "| Driver: " + driver*/ + "| Size: " + getSize() + "| isPaid?: "
-	+ getisPaid() + "| recievedHome?: " + getrecievedHome() + "| Status: " + getStatus() + "| isPlacedBySender?: " + getisPlacedBySender()/* +
+	+ getisPaid() + /*"| recievedHome?: " + getrecievedHome() +*/ "| Status: " + getStatus() + "| isPlacedBySender?: " + getisPlacedBySender()/* +
 	"| isReturnable?: " + isReturnable + "| ReturnCode: " + returnCode + "|||"*/;
 	}
 	

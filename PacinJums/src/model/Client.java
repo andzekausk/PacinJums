@@ -101,10 +101,10 @@ public class Client extends Person{
 		setAddress(null);
 	}
 
-	public Client (String name, String surname, String personCode, String phoneNumber, String emailAdress,
+	public Client (String name, String surname, /*String personCode,*/ String phoneNumber, String emailAdress,
 			 String inputAddress) {
 		
-		super(name, surname, personCode, phoneNumber, emailAdress);
+		super(name, surname, /*personCode,*/ phoneNumber, emailAdress);
 		setClientID();
 		setAddress(inputAddress);		
 	}
