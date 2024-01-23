@@ -1,5 +1,9 @@
 package application;
 	
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import model.Client;
@@ -20,6 +24,8 @@ import javafx.fxml.FXMLLoader;
 
 
 public class Main extends Application {
+	
+	static Connection c = null;
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -32,11 +38,12 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		stage.setTitle("PacinJums");
-		Image icon = new Image("resources/images/pacinjumslogo.png");
+		Image icon = new Image("/resources/images/pacinjumslogo.png");
 		stage.getIcons().add(icon);
 	}
 	
 	public static void main(String[] args) {
+		makeConnection();
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
@@ -49,25 +56,30 @@ public class Main extends Application {
 		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
 		launch(args);
-
-//		System.out.println("Parbaudes");
-//		Employee test1 = new Employee();
-//		Employee test2 = new Employee("Adolfs", "Sula", "120224-11223","23232323", "epasts@epasts.lv");
-//		System.out.println(test1);
-//		System.out.println(test2);
-//		Driver dr1 = new Driver();
-//		Driver dr2 = new Driver("Lauris", "Reiniks", "123456-12345", "25814736", "inbox@box.lv",
-//				Transport.KK_4991, WorkingRegion.Riga);
-//		System.out.println(dr1);
-//		System.out.println(dr2);
-//		Client cl1 = new Client();
-//		Client cl2 = new Client("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80");
-//		System.out.println(cl1);
-//		System.out.println(cl2);
-//		Company comp1 = new Company();
-//		Company comp2 = new Company("Ivans", "Krievs", "123456-12345", "25814736", "inbox@box.lv", "Pils iela 70", "Barona iela 80",
-//				"Amishi", "LV00121231232");
-//		System.out.println(comp1);
-//		System.out.println(comp2);
+		endConnection();
+	}
+	
+	public static void makeConnection() {
+		try {
+			Class.forName("org.sqlite.JDBC");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			c = DriverManager.getConnection("jdbc:sqlite:IIHF16.db");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public static void endConnection() {
+		try {
+			c.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
