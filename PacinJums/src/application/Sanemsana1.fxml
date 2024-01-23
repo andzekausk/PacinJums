@@ -79,7 +79,7 @@
       </Button>
       <ImageView fx:id="bildeAtpakal" fitHeight="150.0" fitWidth="200.0" layoutX="45.0" layoutY="50.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../media/arrow_red.png" />
+            <Image url="@../resources/images/arrow_red.png" />
          </image>
       </ImageView>
    </children>

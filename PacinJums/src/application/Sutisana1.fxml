@@ -67,7 +67,7 @@
             </Label>
             <ImageView fx:id="pogaAtpakal" fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="107.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../arrow_back_red.png" />
+                  <Image url="@../resources/images/arrow_red.png" />
                </image>
             </ImageView>
             <HBox layoutX="350.0" layoutY="253.0" prefHeight="231.0" prefWidth="552.0">

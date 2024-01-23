@@ -20,7 +20,7 @@
             </Label>
             <ImageView fitHeight="113.0" fitWidth="172.0" layoutX="519.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../media/pacinjums1logo.png" />
+                  <Image url="@../resources/images/pacinjumslogo.png" />
                </image>
             </ImageView>
             <HBox layoutX="300.0" layoutY="309.0" prefHeight="300.0" prefWidth="600.0">
@@ -29,7 +29,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../media/sanemt.png" />
+                              <Image url="@../resources/images/sanemt.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="sanemsanasPoga" alignment="CENTER" mnemonicParsing="false" onAction="#sanemt1" prefHeight="30.0" prefWidth="80.0" text="SAŅEMT">
@@ -43,7 +43,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../media/sutit.png" />
+                              <Image url="@../resources/images/sutit.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="sutisanasPoga" alignment="CENTER" mnemonicParsing="false" onAction="#sutit1" prefHeight="30.0" prefWidth="80.0" text="SŪTĪT">
@@ -57,7 +57,7 @@
                      <children>
                         <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../../media/atgriezt.png" />
+                              <Image url="@../resources/images/atgriezt.png" />
                            </image>
                         </ImageView>
                         <Button fx:id="atgriesanasPoga" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="ATGRIEZT">
