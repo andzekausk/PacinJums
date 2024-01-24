@@ -48,7 +48,7 @@ public class Main extends Application {
 			+"idtransport INTEGER, \r\n"
 			+"FOREIGN KEY(idtransport) REFERENCES TRANSPORT(idtransport) \r\n"
 			+ ");";
-	static String sqlFillDriver = "INSERT INTO DRIVER (name, surname, personcode, email, workingregion, idtransport) values \r\n"
+	static String sqlFillDriver = "INSERT INTO DRIVER (name, surname, personcode, email, workingregion, idtransport, phonenumber) values \r\n"
 			+"('Eduards','Aivars','010171-11511','Ed.Aivars@gmail.com','Riga',1,'+37121234567'), ('Imants','Auziņš','020298-12345','imantsauzins@inbox.lv','Kurzeme',2,'+37122345678'),\r\n"
 			+"('Juris','Alunāns','030386-54321','jurish@oto.lv','Vidzeme',3,'+37127654321'),('Rihards','Bargais','040488-23456','bargais@yahoo.com','Zemgale',4,'+37127126354'), \r\n"
 			+"('Pēteris','Draguns','050577-99999','dragon@gmail.com','Latgale',5,'+37128273645'),('Andrejs','Eglītis','060600-11111','andr.egl@inbox.lv','Riga',6, '+37129876543'), \r\n"
@@ -79,7 +79,8 @@ public class Main extends Application {
 //		executeSqlScript(sqlCreateTransport);
 //		executeSqlScript("DELETE FROM 'TRANSPORT' WHERE numberplate='TT-9999'");
 //		executeSqlScript(sqlCreateDriver);
-		executeSqlScript("ALTER TABLE DRIVER ADD COLUMN phonenumber VARCHAR(12);");
+//		executeSqlScript("ALTER TABLE DRIVER ADD COLUMN phonenumber VARCHAR(12);");
+//		executeSqlScript(sqlFillDriver);
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
