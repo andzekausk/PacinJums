@@ -38,6 +38,18 @@ public class Main extends Application {
 			+ "	`numberplate` VARCHAR(7) NOT NULL\r\n"
 			+ ");";
 	static String sqlFillTransport = "INSERT INTO 'TRANSPORT'('numberplate') values ('NG-2955'),('GJ-2324'),('AK-8008'),('AM-1994'),('AL-7684'),('KK-4991'),('TI-9142'),('HM-6078')";
+	static String sqlCreateDriver = "CREATE TABLE DRIVER (\r\n"
+			+"iddriver INTEGER PRIMARY KEY AUTOINCREMENT, \r\n"
+			+"name VARCHAR(30) NOT NULL, \r\n"
+			+"surname VARCHAR(30) NOT NULL, \r\n"
+			+"personcode VARCHAR(12) NOT NULL, \r\n"
+			+"email VARCHAR(45), \r\n"
+			+"workingregion VARCHAR(30) NOT NULL, \r\n"
+			+"idtransport INTEGER, \r\n"
+			+"FOREIGN KEY(idtransport) REFERENCES TRANSPORT(idtransport) \r\n"
+			+ ");";
+	static String sqlFillDriver = "INSERT INTO DRIVER (name, surname, personcode, email, workingregion, idtransport) values \r\n"
+			+"('NG-2955'),('GJ-2324'),('AK-8008'),('AM-1994'),('AL-7684'),('KK-4991'),('TI-9142'),('HM-6078')";
 	
 	@Override
 	public void start(Stage stage) {
@@ -57,13 +69,14 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		makeConnection();
-//		createTable(sqlCreateCountriesTable);
-//		createTable(sqlCreateGamesTable);
-//		fillTable(sqlFillCountriesTable);
-//		fillTable(sqlFillGameTable);
+//		executeSqlScript(sqlCreateCountriesTable);
+//		executeSqlScript(sqlCreateGamesTable);
+//		executeSqlScript(sqlFillCountriesTable);
+//		executeSqlScript(sqlFillGameTable);
 //		getRecordsFromCountries();
-//		createTable(sqlCreateTransport);
-		fillTable("DELETE FROM 'TRANSPORT' WHERE numberplate='TT-9999'");
+//		executeSqlScript(sqlCreateTransport);
+//		executeSqlScript("DELETE FROM 'TRANSPORT' WHERE numberplate='TT-9999'");
+//		executeSqlScript(sqlCreateDriver);
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
@@ -105,7 +118,7 @@ public class Main extends Application {
 		System.out.println("Database connection is ended");
 	}
 	
-	public static void createTable(String sql) {
+	public static void executeSqlScript(String sql) {
 		try {
 			stmt = c.createStatement();
 		} catch (SQLException e) {
@@ -118,23 +131,7 @@ public class Main extends Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Table created successfully");
-	}
-	
-	public static void fillTable(String sql) {
-		try {
-			stmt = c.createStatement();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			stmt.executeUpdate(sql);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("Table filled successfully");
+		System.out.println("SQL script executed");
 	}
 	
 	public static void getRecordsFromCountries() {
