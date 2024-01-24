@@ -33,6 +33,11 @@ public class Main extends Application {
 	static String sqlCreateGamesTable= "CREATE TABLE GAMES ( ID INTEGER PRIMARY KEY AUTOINCREMENT, TEAM1ID INTEGER, TEAM2ID INTEGER, DATETIME VARCHAR(60), SCORE1 INTEGER, SCORE2 INTEGER);";
 	static String sqlFillGameTable = "INSERT INTO GAMES (team1ID,team2ID,dateTime,score1,score2) VALUES (3,10,'6 May-Fri 16:15 GMT+3',2,1), (5,1,'6 May-Fri 16:15 GMT+3',1,5), (6,2,'6 May-Fri 20:15 GMT+3',3,0), (4,9,'6 May-Fri 20:15 GMT+3',6,2);";
 	static String sqlFillCountriesTable = "INSERT INTO COUNTRIES (NAME, ABBR, COMMENT) VALUES ('Canada', 'CAN', ''), ('Russia', 'RUS', ''), ('Sweden', 'SWE', ''), ('Finland', 'FIN', ''), ('USA', 'USA', ''), ('Czech Republic', 'CZE', ''), ('Switzerland', 'SUI', ''), ('Slovakia', 'SVK', '');";
+	static String sqlCreateTransport = "CREATE TABLE `TRANSPORT` (\r\n"
+			+ "	`idtransport` INTEGER PRIMARY KEY AUTOINCREMENT,\r\n"
+			+ "	`numberplate` VARCHAR(7) NOT NULL\r\n"
+			+ ");";
+	static String sqlFillTransport = "INSERT INTO 'TRANSPORT'('numberplate') values ('NG-2955'),('GJ-2324'),('AK-8008'),('AM-1994'),('AL-7684'),('KK-4991'),('TI-9142'),('HM-6078')";
 	
 	@Override
 	public void start(Stage stage) {
@@ -56,7 +61,9 @@ public class Main extends Application {
 //		createTable(sqlCreateGamesTable);
 //		fillTable(sqlFillCountriesTable);
 //		fillTable(sqlFillGameTable);
-		getRecordsFromCountries();
+//		getRecordsFromCountries();
+//		createTable(sqlCreateTransport);
+		fillTable("DELETE FROM 'TRANSPORT' WHERE numberplate='TT-9999'");
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
@@ -80,7 +87,7 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		try {
-			c = DriverManager.getConnection("jdbc:sqlite:IIHF16.db");
+			c = DriverManager.getConnection("jdbc:sqlite:pacinjums.db");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
