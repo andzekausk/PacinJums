@@ -53,6 +53,11 @@ public class Main extends Application {
 			+"('Juris','Alunāns','030386-54321','jurish@oto.lv','Vidzeme',3,'+37127654321'),('Rihards','Bargais','040488-23456','bargais@yahoo.com','Zemgale',4,'+37127126354'), \r\n"
 			+"('Pēteris','Draguns','050577-99999','dragon@gmail.com','Latgale',5,'+37128273645'),('Andrejs','Eglītis','060600-11111','andr.egl@inbox.lv','Riga',6, '+37129876543'), \r\n"
 			+"('Guntars','Godiņš','070797-22222','gunt.god@gmail.com','Kurzeme',7,'+37128765432'),('Harijs','Heislers','080878-33333','harijsheislers@inbox.lv','Vidzeme',8,'+37129876543');";
+	static String sqlCreatePakomati = "CREATE TABLE PARCELMACHINE ("
+			+ "idparcelmachine INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "address VARCHAR(45) NOT NULL,"
+			+ "workingregion VARCHAR(45) NOT NULL);";
+	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Ventspils Iela 5', 'Kurzeme')";
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -81,6 +86,7 @@ public class Main extends Application {
 //		executeSqlScript(sqlCreateDriver);
 //		executeSqlScript("ALTER TABLE DRIVER ADD COLUMN phonenumber VARCHAR(12);");
 //		executeSqlScript(sqlFillDriver);
+		executeSqlScript(sqlFillPakomati);
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
