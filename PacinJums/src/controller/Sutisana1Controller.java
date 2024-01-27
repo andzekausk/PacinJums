@@ -72,20 +72,35 @@ public class Sutisana1Controller {
 			
 			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
 			
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana2.fxml"));
-			root = loader.load();
 			
-			Sutisana2Controller sutisana2Controller = loader.getController();
-			sutisana2Controller.setJaunsKlients(jaunsKlients);
-			sutisana2Controller.setJaunsKlients(jaunsKlients2);
-			
-			
-			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-			scene = new Scene(root);
-			stage.setScene(scene);
-			stage.show();
-			System.out.println(jaunsKlients);	
-			System.out.println(jaunsSutijums);
+			if (jaunsKlients.getName().matches("Vards") || 
+					jaunsKlients.getSurname().matches("Uzvards") ||
+					jaunsKlients.getPhoneNumber().matches("12345678") ||
+					jaunsKlients.getEmailAdress().matches("epasts@epasts.lv")||
+					jaunsKlients2.getName().matches("Vards") || 
+					jaunsKlients2.getSurname().matches("Uzvards") ||
+					jaunsKlients2.getPhoneNumber().matches("12345678") ||
+					jaunsKlients2.getEmailAdress().matches("epasts@epasts.lv")) {
+				vietaZinai.setText("Nekorekta datu ievade");
+			}
+			else {
+				
+				FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana2.fxml"));
+				root = loader.load();
+				
+				Sutisana2Controller sutisana2Controller = loader.getController();
+				sutisana2Controller.setJaunsKlients(jaunsKlients);
+				sutisana2Controller.setJaunsKlients2(jaunsKlients2);
+				
+				
+				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+				System.out.println(jaunsKlients);	
+				System.out.println(jaunsSutijums);
+				
+			}
 		}
 	}
 	public void atpakal(MouseEvent event) throws IOException {
