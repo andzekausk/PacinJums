@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Sutisana1Controller">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #f5e373;">
+         <children>
+            <Label alignment="CENTER" layoutY="120.0" prefHeight="17.0" prefWidth="1200.0" text="Sūtīt sūtījumu" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <Label layoutX="159.0" layoutY="207.0" prefHeight="45.0" prefWidth="172.0" text="Paciņas izmērs:" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="radioButtonS" layoutX="210.0" layoutY="262.0" mnemonicParsing="false" onAction="#radioPogasIzvele" selected="true" text="S">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="pacinasIzmers" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton fx:id="radioButtonM" layoutX="210.0" layoutY="305.0" mnemonicParsing="false" onAction="#radioPogasIzvele" text="M" toggleGroup="$pacinasIzmers" AnchorPane.bottomAnchor="478.0" AnchorPane.topAnchor="305.0">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </RadioButton>
+            <RadioButton fx:id="radioButtonL" layoutX="210.0" layoutY="343.0" mnemonicParsing="false" onAction="#radioPogasIzvele" text="L" toggleGroup="$pacinasIzmers">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </RadioButton>
+            <Label layoutX="406.0" layoutY="221.0" text="Nosūtītājs:" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="705.0" layoutY="221.0" text="Saņēmējs:" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="18.0" />
+               </font>
+            </Label>
+            <Button fx:id="pogaTurpinat" layoutX="552.0" layoutY="500.0" mnemonicParsing="false" onAction="#sutit" text="Turpināt!">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="vietaZinai" alignment="CENTER" layoutY="180.0" prefHeight="20.0" prefWidth="1200.0" text="Aizpildi tukšos laukumus!" textFill="#c63535">
+               <font>
+                  <Font name="System Italic" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="pogaAtpakal" fitHeight="80.0" fitWidth="80.0" layoutX="50.0" layoutY="107.0" onMouseClicked="#atpakal" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/arrow_red.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="350.0" layoutY="253.0" prefHeight="231.0" prefWidth="552.0">
+               <children>
+                  <VBox prefHeight="232.0" prefWidth="173.0">
+                     <children>
+                        <TextField fx:id="nosutVards" promptText="Vārds">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="nosutUzvards" prefHeight="25.0" prefWidth="172.0" promptText="Uzvārds">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="nosutEpasts" promptText="E-pasts">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="nosutMob" promptText="Mobilais tālrunis">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="232.0" prefWidth="173.0">
+                     <children>
+                        <TextField fx:id="sanemVards" prefWidth="170.0" promptText="Vārds">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="sanemUzvards" promptText="Uzvārds">
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="sanemEpasts" promptText="E-pasts">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets bottom="20.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <TextField fx:id="sanemMob" promptText="Mobilais tālrunis">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Sutisana2Controller">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #f5e373;">
+         <children>
+            <Label alignment="CENTER" layoutY="120.0" prefHeight="17.0" prefWidth="1200.0" text="Sūtīt sūtījumu" textFill="#c63535">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <VBox layoutX="140.0" layoutY="186.0" prefHeight="364.0" prefWidth="306.0">
+               <children>
+                  <Label text="Informācija par tevi" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsVards" text="Vārds" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsUzvards" text="Uzvārds" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsMob" text="Mob.tālrunis" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditsEpasts" text="Epasts" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

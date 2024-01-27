@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MenuController">
+   <children>
+      <AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #f5e373;" AnchorPane.leftAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" layoutY="120.0" prefHeight="80.0" prefWidth="1200.0" text="Sveicināti!" textFill="#c63535" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="System Bold Italic" size="36.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="113.0" fitWidth="172.0" layoutX="519.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../resources/images/pacinjumslogo.png" />
+               </image>
+            </ImageView>
+            <HBox layoutX="300.0" layoutY="309.0" prefHeight="300.0" prefWidth="600.0">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/sanemt.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="sanemsanasPoga" alignment="CENTER" mnemonicParsing="false" onAction="#sanemt1" prefHeight="30.0" prefWidth="80.0" text="SAŅEMT">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/sutit.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="sutisanasPoga" alignment="CENTER" mnemonicParsing="false" onAction="#sutit1" prefHeight="30.0" prefWidth="80.0" text="SŪTĪT">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="300.0" prefWidth="200.0" spacing="40.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/images/atgriezt.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="atgriesanasPoga" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="80.0" text="ATGRIEZT">
+                           <font>
+                              <Font name="System Italic" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
