@@ -58,6 +58,13 @@ public class Main extends Application {
 			+ "address VARCHAR(45) NOT NULL,"
 			+ "workingregion VARCHAR(45) NOT NULL);";
 	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Baložu iela 69', 'Vidzeme'),('Sanatorijas Iela 7', 'Zemgale'),('Ģenerāļa Bulvāris 70', 'Latgale'), ('Ventspils Iela 45','Riga')";
+	static String sqlCreateSkapisi = "CREATE TABLE LOCKER ("
+			+ "idparcelmachine INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "locker_number INTEGER(11) NOT NULL,"
+			+ "size ENUM('S', 'M', 'L') NOT NULL,"
+			+ "locker_code INTEGER(11) NOT NULL,"
+			+ "idparcelmachine INTEGER ";
+	
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -86,7 +93,8 @@ public class Main extends Application {
 //		executeSqlScript(sqlCreateDriver);
 //		executeSqlScript("ALTER TABLE DRIVER ADD COLUMN phonenumber VARCHAR(12);");
 //		executeSqlScript(sqlFillDriver);
-		executeSqlScript(sqlFillPakomati);
+//		executeSqlScript(sqlFillPakomati);
+		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
