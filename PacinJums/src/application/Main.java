@@ -74,6 +74,17 @@ public class Main extends Application {
 			+ "('SMS Credit', 'LV00123456543', 'Nabagu Iela 45-3'),"
 			+ "('SIA Malmar', 'LV00112255331', 'Kuldigas Iela 128'),"
 			+ "('SIA Celtnieks','LV00982374123','Jaunais Bulvaris 40');";
+	static String sqlCreateClient = "CREATE TABLE CLIENT ("
+			+ "idClient INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "name VARCHAR(45),"
+			+ "surname VARCHAR(45),"
+			+ "phoneNumber VARCHAR(45) NOT NULL,"
+			+ "emailAddress VARCHAR(45),"
+			+ "address VARCHAR(45) NOT NULL);";
+	static String sqlFillClient = "INSERT INTO CLIENT(name, surname, phoneNumber, emailAddress, address) values"
+			+ "('Janis','Ozols','28282828','J.Ozo@inbox.lv','Pardaugavas Iela 66'),"
+			+ "('Kaspars','Daugavins','21398563','Daugava@gmail.com','Ventspils Iela 3'),"
+			+ "('Irina','Ivanova','22558899','IRinA@one.lv','Lidotaju Iela 5');";
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -105,7 +116,8 @@ public class Main extends Application {
 //		executeSqlScript(sqlFillPakomati);
 //		executeSqlScript(sqlCreateCompany);
 //		executeSqlScript(sqlFillCompany);
-		
+//		executeSqlScript(sqlCreateClient);
+		executeSqlScript(sqlFillClient);
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
