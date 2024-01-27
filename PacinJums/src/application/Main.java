@@ -59,12 +59,12 @@ public class Main extends Application {
 			+ "workingregion VARCHAR(45) NOT NULL);";
 	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Baložu iela 69', 'Vidzeme'),('Sanatorijas Iela 7', 'Zemgale'),('Ģenerāļa Bulvāris 70', 'Latgale'), ('Ventspils Iela 45','Riga')";
 	static String sqlCreateSkapisi = "CREATE TABLE LOCKER ("
-			+ "idparcelmachine INTEGER PRIMARY KEY AUTOINCREMENT,"
-			+ "locker_number INTEGER(11) NOT NULL,"
+			+ "idlocker INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "lockernumber INTEGER NOT NULL,"
 			+ "size ENUM('S', 'M', 'L') NOT NULL,"
-			+ "locker_code INTEGER(11) NOT NULL,"
-			+ "idparcelmachine INTEGER,"
-			+ "id"; // TODO: JAPABEIDZ
+			+ "lockercode INTEGER NOT NULL,"
+			+ "idparcel INTEGER NOT NULL,"
+			+ "idparcelmachine INTEGER NOT NULL,"; // TODO: JAPABEIDZ
 	static String sqlCreateCompany = "CREATE TABLE COMPANY ("
 			+ "idcompany INTEGER PRIMARY KEY AUTOINCREMENT,"
 			+ "companyName VARCHAR(45) NOT NULL,"
@@ -74,6 +74,7 @@ public class Main extends Application {
 			+ "('SMS Credit', 'LV00123456543', 'Nabagu Iela 45-3'),"
 			+ "('SIA Malmar', 'LV00112255331', 'Kuldigas Iela 128'),"
 			+ "('SIA Celtnieks','LV00982374123','Jaunais Bulvaris 40');";
+
 	@Override
 	public void start(Stage stage) {
 		try {
