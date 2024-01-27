@@ -57,7 +57,7 @@ public class Main extends Application {
 			+ "idparcelmachine INTEGER PRIMARY KEY AUTOINCREMENT,"
 			+ "address VARCHAR(45) NOT NULL,"
 			+ "workingregion VARCHAR(45) NOT NULL);";
-	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Ventspils Iela 5', 'Kurzeme')";
+	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Baložu iela 69', 'Vidzeme'),('Sanatorijas Iela 7', 'Zemgale'),('Ģenerāļa Bulvāris 70', 'Latgale'), ('Ventspils Iela 45','Riga')";
 	@Override
 	public void start(Stage stage) {
 		try {
