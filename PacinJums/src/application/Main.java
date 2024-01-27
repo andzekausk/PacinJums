@@ -63,8 +63,17 @@ public class Main extends Application {
 			+ "locker_number INTEGER(11) NOT NULL,"
 			+ "size ENUM('S', 'M', 'L') NOT NULL,"
 			+ "locker_code INTEGER(11) NOT NULL,"
-			+ "idparcelmachine INTEGER ";
-	
+			+ "idparcelmachine INTEGER,"
+			+ "id"; // TODO: JAPABEIDZ
+	static String sqlCreateCompany = "CREATE TABLE COMPANY ("
+			+ "idcompany INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "companyName VARCHAR(45) NOT NULL,"
+			+ "pvnNumber VARCHAR(45) NOT NULL,"
+			+ "companyAddress VARCHAR(45) NOT NULL);";
+	static String sqlFillCompany = "INSERT INTO COMPANY(companyName, pvnNumber, companyAddress) values"
+			+ "('SMS Credit', 'LV00123456543', 'Nabagu Iela 45-3'),"
+			+ "('SIA Malmar', 'LV00112255331', 'Kuldigas Iela 128'),"
+			+ "('SIA Celtnieks','LV00982374123','Jaunais Bulvaris 40');";
 	@Override
 	public void start(Stage stage) {
 		try {
@@ -94,6 +103,9 @@ public class Main extends Application {
 //		executeSqlScript("ALTER TABLE DRIVER ADD COLUMN phonenumber VARCHAR(12);");
 //		executeSqlScript(sqlFillDriver);
 //		executeSqlScript(sqlFillPakomati);
+//		executeSqlScript(sqlCreateCompany);
+//		executeSqlScript(sqlFillCompany);
+		
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
