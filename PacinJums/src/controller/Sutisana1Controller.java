@@ -12,13 +12,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import model.Client;
+import model.Parcel;
+import model.ParcelStatus;
+import model.Size;
+
 
 public class Sutisana1Controller {
 	@FXML
-	private RadioButton radioButtonS, radioButtonM, radioButtionL;
+	private RadioButton radioButtonS, radioButtonM, radioButtonL;
+	
+	@FXML
+	private ToggleGroup pacinasIzmers;
 	
 	@FXML
 	private TextField nosutVards, nosutUzvards, nosutMob, nosutEpasts, sanemVards, sanemUzvards, sanemMob, sanemEpasts;
@@ -27,14 +35,33 @@ public class Sutisana1Controller {
 	private Label vietaZinai;
 	
 	@FXML
-	private Button pogaA, pogaB, pogaC;
+	private Button pogaA, pogaB, pogaC, pogaTurpinat;
 	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
+	private Size izmers = Size.S;
+//	pacinasIzmers.selectedToggleProperty().addListener((observable, oldToggle, newToggle) -> {
+//		if (newToggle !=null) {
+//			RadioButton selectedRadioButton = (RadioButton) newToggle;
+//		}
+//	});
+	public void radioPogasIzvele(ActionEvent event) throws IOException {
+		if (radioButtonS.isSelected()) {
+			izmers = Size.S;
+		}
+		if (radioButtonM.isSelected()) {
+			izmers = Size.M;
+		}
+		if (radioButtonL.isSelected()) {
+			izmers = Size.L;
+		}
+	}
 	
 	public void sutit(ActionEvent event) throws IOException {
+		
+		
 		if (nosutVards.getText().isEmpty() || nosutUzvards.getText().isEmpty() || nosutMob.getText().isEmpty() || nosutEpasts.getText().isEmpty() || sanemVards.getText().isEmpty() || sanemUzvards.getText().isEmpty() || sanemEpasts.getText().isEmpty() || sanemMob.getText().isEmpty()) {
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
@@ -43,6 +70,8 @@ public class Sutisana1Controller {
 			
 			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), null);
 			
+			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
+			
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana2.fxml"));
 			root = loader.load();
 			
@@ -50,12 +79,13 @@ public class Sutisana1Controller {
 			sutisana2Controller.setJaunsKlients(jaunsKlients);
 			sutisana2Controller.setJaunsKlients(jaunsKlients2);
 			
+			
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
 			stage.setScene(scene);
 			stage.show();
 			System.out.println(jaunsKlients);	
-
+			System.out.println(jaunsSutijums);
 		}
 	}
 	public void atpakal(MouseEvent event) throws IOException {
