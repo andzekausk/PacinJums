@@ -48,7 +48,7 @@ public class Sutisana1Controller {
 			
 			Sutisana2Controller sutisana2Controller = loader.getController();
 			sutisana2Controller.setJaunsKlients(jaunsKlients);
-			sutisana2Controller.setJaunsKlients(jaunsKlients2);
+			sutisana2Controller.setJaunsKlients2(jaunsKlients2);
 			
 			stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 			scene = new Scene(root);
