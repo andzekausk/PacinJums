@@ -18,9 +18,6 @@ public class Sutisana4Controller extends Controller{
 	Button pogaPabeigt, lockerDoor;
 	
 	@FXML
-	RadioButton pogaKurzeme, pogaZemgale, pogaVidzeme, pogaLatgale, pogaRiga;
-	
-	@FXML
 	ToggleGroup RegionSelect;
 	@FXML
 	Label lockerNumber;
@@ -38,12 +35,6 @@ public class Sutisana4Controller extends Controller{
 		jaunsSutijums.setSender(jaunsKlients);
 		jaunsSutijums.setReciever(jaunsKlients2);
 		System.out.println(jaunsSutijums);
-	}
-	
-	public void ParcelAllocation() {
-		if (pogaKurzeme.isSelected()) {
-			ParcelMachine thisMachine = new ParcelMachine(null, null, 0, 0, 0);
-		}
 	}
 	
 	public void DoorClosed (ActionEvent event) throws IOException {

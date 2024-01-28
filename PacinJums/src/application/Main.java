@@ -110,7 +110,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Pakomati.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MenuScene.fxml"));
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
@@ -124,7 +124,8 @@ public class Main extends Application {
 	}
 	
 	public static void main(String[] args) {
-//		makeConnection();
+		makeConnection();
+		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
 //		executeSqlScript(sqlCreateClient);
@@ -155,7 +156,7 @@ public class Main extends Application {
 //		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
 		launch(args);
-//		endConnection();
+		endConnection();
 	}
 	
 	public static void makeConnection() {
