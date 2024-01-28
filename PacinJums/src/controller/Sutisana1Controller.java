@@ -29,7 +29,7 @@ public class Sutisana1Controller {
 	private ToggleGroup pacinasIzmers;
 	
 	@FXML
-	private TextField nosutVards, nosutUzvards, nosutMob, nosutEpasts, sanemVards, sanemUzvards, sanemMob, sanemEpasts;
+	private TextField nosutVards, nosutUzvards, nosutMob, nosutEpasts, sanemVards, sanemUzvards, sanemMob, sanemEpasts, sanemAdrese;
 	
 	@FXML
 	private Label vietaZinai;
@@ -62,13 +62,15 @@ public class Sutisana1Controller {
 	public void sutit(ActionEvent event) throws IOException {
 		
 		
-		if (nosutVards.getText().isEmpty() || nosutUzvards.getText().isEmpty() || nosutMob.getText().isEmpty() || nosutEpasts.getText().isEmpty() || sanemVards.getText().isEmpty() || sanemUzvards.getText().isEmpty() || sanemEpasts.getText().isEmpty() || sanemMob.getText().isEmpty()) {
+		if (nosutVards.getText().isEmpty() || nosutUzvards.getText().isEmpty() || nosutMob.getText().isEmpty() || 
+				nosutEpasts.getText().isEmpty() || sanemVards.getText().isEmpty() || sanemUzvards.getText().isEmpty() || 
+				sanemEpasts.getText().isEmpty() || sanemMob.getText().isEmpty() || sanemAdrese.getText().isEmpty()){
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
 			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), null);
 			
-			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), null);
+			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText());
 			
 			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
 			

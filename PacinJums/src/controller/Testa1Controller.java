@@ -40,7 +40,6 @@ public class Testa1Controller extends Controller{
 		boolean isPlacedBySenderValue = mansRandom.nextBoolean();
 
 		Parcel izpilditsPasutijums = new Parcel(null, null, null, isPaidValue, ParcelStatus.Delivered, isPlacedBySenderValue);
-	System.out.println(izpilditsPasutijums);
 	}
 	
 	public void GaiduPasutijums(ActionEvent event) throws IOException {
