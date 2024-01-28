@@ -130,17 +130,29 @@ public class Main extends Application {
 //		executeSqlScript(sqlCreateClient);
 //		executeSqlScript(sqlCreateCompany);
 //		executeSqlScript(sqlFillClient);
+//		String size = "S";
+//		for(int i = 1;i<=5;i++) {
+//			for(int j=1;j<=60;j++) {
+//				if(j<=30) size = "S";
+//				else if(j>=31 && j<=50) size = "M";
+//				else if(j>=51 && j<=60) size = "L";
+//				executeSqlScript("INSERT INTO LOCKER(lockernumber, size, lockercode, idparcel, idparcelmachine, placeddate) values"
+//						+ "("+j+",'"+size+"',-1,null,"+i+",null)"
+//						+ ";");
+//			}
+//		}
+
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
 //		Parcel parcel1 = new Parcel(pm1, sender1, reciever1, Size.S, true, false, ParcelStatus.Pending, true);
 		Parcel parcel1 = new Parcel(sender1, reciever1, Size.S , true, ParcelStatus.Pending, false);
-		System.out.println(parcel1);
-		System.out.println(pm1);
+//		System.out.println(parcel1);
+//		System.out.println(pm1);
 		pm1.placeParcel(parcel1);
-		System.out.println(pm1);
-		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
+//		System.out.println(pm1);
+//		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
 		launch(args);
 		endConnection();
