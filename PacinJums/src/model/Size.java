@@ -1,5 +1,8 @@
 package model;
 
+
 public enum Size {
-	S, M, L
+	S, M, L;
+
 }
+
