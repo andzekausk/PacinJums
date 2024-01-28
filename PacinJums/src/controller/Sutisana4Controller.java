@@ -12,13 +12,14 @@ import model.Parcel;
 public class Sutisana4Controller extends Controller{
 	@FXML
 	Button pogaPabeigt;
-	Client jaunsKlients;
-	Client jaunsKlients2;
+	Client jaunsKlients = null;
+	Client jaunsKlients2 = null;
+
 	public void setJaunsKlients(Client jaunsKlients) {
-		jaunsKlients = this.jaunsKlients;
+		this.jaunsKlients = jaunsKlients;
 }
 	public void setJaunsKlients2(Client jaunsKlients2) {
-		jaunsKlients2 = this.jaunsKlients2;
+		this.jaunsKlients2 = jaunsKlients2;
 	}
 	public void editJaunsPasutijums(Parcel jaunsSutijums) {
 		jaunsSutijums.setSender(jaunsKlients);
@@ -28,6 +29,5 @@ public class Sutisana4Controller extends Controller{
 	
 	public void pabeigt(ActionEvent event) throws IOException {
 		changeScene(pogaPabeigt, "/application/MenuScene.fxml");
-
 	}
 }
