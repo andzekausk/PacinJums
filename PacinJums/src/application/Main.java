@@ -62,10 +62,9 @@ public class Main extends Application {
 			+ "lockernumber INTEGER NOT NULL,"
 			+ "size TEXT NOT NULL,"
 			+ "lockercode INTEGER NOT NULL,"
-			+ "idparcel INTEGER,"
-			+ "FOREIGN KEY(idparcel) REFERENCES PARCEL(idparcel)"
-			+ "idparcelmachine INTEGER NOT NULL,"
-			+ "FOREIGN KEY(idparcelmachine) REFERENCES PARCELMACHINE(idparcelmachine)"
+			+ "idparcel INTEGER REFERENCES PARCEL(idparcel),"
+			+ "idparcelmachine INTEGER NOT NULL REFERENCES PARCELMACHINE(idparcelmachine),"
+			+ "placeddate TEXT"
 			+ ");"; // TODO: JAPABEIDZ
 	
 	static String sqlCreateCompany = "CREATE TABLE COMPANY ("
@@ -91,23 +90,22 @@ public class Main extends Application {
 			+ "FOREIGN KEY(idcompany) REFERENCES COMPANY(idcompany)"
 			+ ");";
 	
-	static String sqlFillClient = "INSERT INTO CLIENT(name, surname, phonenumber, email, address) values"
-			+ "('Janis','Ozols','28282828','J.Ozo@inbox.lv','Pardaugavas Iela 66'),"
-			+ "('Kaspars','Daugavins','21398563','Daugava@gmail.com','Ventspils Iela 3'),"
-			+ "('Irina','Ivanova','22558899','IRinA@one.lv','Lidotaju Iela 5');"; // TODO: pielagot parveidotam klientam
+	static String sqlFillClient = "INSERT INTO CLIENT(name, surname, clienttype, phonenumber, email, address, idcompany) values"
+			+ "('Janis','Ozols','sender','+37128282828','J.Ozo@inbox.lv','Pardaugavas Iela 66',1),"
+			+ "('Kaspars','Daugavins','reciever','+37121398563','Daugava@gmail.com','Ventspils Iela 3',null),"
+			+ "('Kristaps','Laipnais','sender','+37121398563','krishux@gmail.com','Roku Iela 51',2),"
+			+ "('Irina','Ivanova','reciever','+37122558899','IRinA@one.lv','Lidotaju Iela 5',null);";
 	
 	static String sqlCreateParcel = "CREATE TABLE PARCEL ("
 			+ "idparcel INTEGER PRIMARY KEY AUTOINCREMENT,"
 			+ "parcelcode TEXT NOT NULL,"
 			+ "size TEXT NOT NULL,"
 			+ "ispaid INTEGER NOT NULL,"
-			+ "idsender INTEGER NOT NULL,"
-			+ "FOREIGN KEY(idsender) REFERENCES CLIENT(idclient),"
-			+ "idreciever INTEGER NOT NULL,"
-			+ "FOREIGN KEY(idreciever) REFERENCES CLIENT(idclient),"
-			+ "iddriver INTEGER,"
-			+ "FOREIGN KEY(iddriver) REFERENCES DRIVER(iddriver),"
-			+ "collectiondate TEXT,"
+			+ "isreturnable INTEGER NOT NULL,"
+			+ "idsender INTEGER NOT NULL REFERENCES CLIENT(idclient),"
+			+ "idreciever INTEGER NOT NULL REFERENCES CLIENT(idclient),"
+			+ "iddriver INTEGER REFERENCES DRIVER(iddriver)  ON DELETE SET NULL,"
+			+ "collectiondate TEXT"
 			+ ");";
 	@Override
 	public void start(Stage stage) {
@@ -127,6 +125,10 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		makeConnection();
+//		executeSqlScript(sqlCreateSkapisi);
+//		executeSqlScript("DROP TABLE CLIENT");
+//		executeSqlScript(sqlCreateClient);
+//		executeSqlScript(sqlCreateCompany);
 //		executeSqlScript(sqlFillClient);
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
