@@ -29,46 +29,88 @@ public class Main extends Application {
 	
 	static Connection c = null;
 	static Statement stmt = null;
-	static String sqlCreateCountriesTable = "CREATE TABLE COUNTRIES ( ID INTEGER PRIMARY KEY AUTOINCREMENT, NAME TEXT NOT NULL, ABBR TEXT NOT NULL, COMMENT varchar(50));";
-	static String sqlCreateGamesTable= "CREATE TABLE GAMES ( ID INTEGER PRIMARY KEY AUTOINCREMENT, TEAM1ID INTEGER, TEAM2ID INTEGER, DATETIME VARCHAR(60), SCORE1 INTEGER, SCORE2 INTEGER);";
-	static String sqlFillGameTable = "INSERT INTO GAMES (team1ID,team2ID,dateTime,score1,score2) VALUES (3,10,'6 May-Fri 16:15 GMT+3',2,1), (5,1,'6 May-Fri 16:15 GMT+3',1,5), (6,2,'6 May-Fri 20:15 GMT+3',3,0), (4,9,'6 May-Fri 20:15 GMT+3',6,2);";
-	static String sqlFillCountriesTable = "INSERT INTO COUNTRIES (NAME, ABBR, COMMENT) VALUES ('Canada', 'CAN', ''), ('Russia', 'RUS', ''), ('Sweden', 'SWE', ''), ('Finland', 'FIN', ''), ('USA', 'USA', ''), ('Czech Republic', 'CZE', ''), ('Switzerland', 'SUI', ''), ('Slovakia', 'SVK', '');";
 	static String sqlCreateTransport = "CREATE TABLE `TRANSPORT` (\r\n"
 			+ "	`idtransport` INTEGER PRIMARY KEY AUTOINCREMENT,\r\n"
 			+ "	`numberplate` VARCHAR(7) NOT NULL\r\n"
 			+ ");";
 	static String sqlFillTransport = "INSERT INTO 'TRANSPORT'('numberplate') values ('NG-2955'),('GJ-2324'),('AK-8008'),('AM-1994'),('AL-7684'),('KK-4991'),('TI-9142'),('HM-6078')";
-	static String sqlCreateDriver = "CREATE TABLE DRIVER (\r\n"
-			+"iddriver INTEGER PRIMARY KEY AUTOINCREMENT, \r\n"
-			+"name VARCHAR(30) NOT NULL, \r\n"
-			+"surname VARCHAR(30) NOT NULL, \r\n"
-			+"personcode VARCHAR(12) NOT NULL, \r\n"
-			+"email VARCHAR(45), \r\n"
-			+"workingregion VARCHAR(30) NOT NULL, \r\n"
-			+"idtransport INTEGER, \r\n"
-			+"FOREIGN KEY(idtransport) REFERENCES TRANSPORT(idtransport) \r\n"
+	static String sqlCreateDriver = "CREATE TABLE DRIVER ("
+			+"iddriver INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+"name TEXT NOT NULL,"
+			+"surname TEXT NOT NULL,"
+			+"personcode TEXT NOT NULL,"
+			+"email TEXT NOT NULL,"
+			+"workingregion TEXT NOT NULL,"
+			+"idtransport INTEGER,"
+			+"FOREIGN KEY(idtransport) REFERENCES TRANSPORT(idtransport)"
 			+ ");";
 	static String sqlFillDriver = "INSERT INTO DRIVER (name, surname, personcode, email, workingregion, idtransport, phonenumber) values \r\n"
 			+"('Eduards','Aivars','010171-11511','Ed.Aivars@gmail.com','Riga',1,'+37121234567'), ('Imants','Auziņš','020298-12345','imantsauzins@inbox.lv','Kurzeme',2,'+37122345678'),\r\n"
 			+"('Juris','Alunāns','030386-54321','jurish@oto.lv','Vidzeme',3,'+37127654321'),('Rihards','Bargais','040488-23456','bargais@yahoo.com','Zemgale',4,'+37127126354'), \r\n"
 			+"('Pēteris','Draguns','050577-99999','dragon@gmail.com','Latgale',5,'+37128273645'),('Andrejs','Eglītis','060600-11111','andr.egl@inbox.lv','Riga',6, '+37129876543'), \r\n"
 			+"('Guntars','Godiņš','070797-22222','gunt.god@gmail.com','Kurzeme',7,'+37128765432'),('Harijs','Heislers','080878-33333','harijsheislers@inbox.lv','Vidzeme',8,'+37129876543');";
+	
 	static String sqlCreatePakomati = "CREATE TABLE PARCELMACHINE ("
 			+ "idparcelmachine INTEGER PRIMARY KEY AUTOINCREMENT,"
-			+ "address VARCHAR(45) NOT NULL,"
-			+ "workingregion VARCHAR(45) NOT NULL);";
-	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Baložu iela 69', 'Vidzeme'),('Sanatorijas Iela 7', 'Zemgale'),('Ģenerāļa Bulvāris 70', 'Latgale'), ('Ventspils Iela 45','Riga')";
-	static String sqlCreateSkapisi = "CREATE TABLE LOCKER ("
-			+ "idparcelmachine INTEGER PRIMARY KEY AUTOINCREMENT,"
-			+ "locker_number INTEGER(11) NOT NULL,"
-			+ "size ENUM('S', 'M', 'L') NOT NULL,"
-			+ "locker_code INTEGER(11) NOT NULL,"
-			+ "idparcelmachine INTEGER ";
+			+ "address TEXT NOT NULL,"
+			+ "workingregion TEXT NOT NULL);";
 	
+	static String sqlFillPakomati = "INSERT INTO PARCELMACHINE (address, workingregion) values('Baložu iela 69', 'Vidzeme'),('Sanatorijas Iela 7', 'Zemgale'),('Ģenerāļa Bulvāris 70', 'Latgale'), ('Ventspils Iela 45','Riga')";
+	
+	static String sqlCreateSkapisi = "CREATE TABLE LOCKER ("
+			+ "idlocker INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "lockernumber INTEGER NOT NULL,"
+			+ "size TEXT NOT NULL,"
+			+ "lockercode INTEGER NOT NULL,"
+			+ "idparcel INTEGER REFERENCES PARCEL(idparcel),"
+			+ "idparcelmachine INTEGER NOT NULL REFERENCES PARCELMACHINE(idparcelmachine),"
+			+ "placeddate TEXT"
+			+ ");"; // TODO: JAPABEIDZ
+	
+	static String sqlCreateCompany = "CREATE TABLE COMPANY ("
+			+ "idcompany INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "companyname TEXT NOT NULL,"
+			+ "pvnnumber TEXT NOT NULL,"
+			+ "companyaddress TEXT NOT NULL);";
+	
+	static String sqlFillCompany = "INSERT INTO COMPANY(companyname, pvnnumber, companyaddress) values"
+			+ "('SMS Credit', 'LV00123456543', 'Nabagu Iela 45-3'),"
+			+ "('SIA Malmar', 'LV00112255331', 'Kuldigas Iela 128'),"
+			+ "('SIA Celtnieks','LV00982374123','Jaunais Bulvaris 40');";
+
+	static String sqlCreateClient = "CREATE TABLE CLIENT ("
+			+ "idclient INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "name TEXT NOT NULL,"
+			+ "surname TEXT NOT NULL,"
+			+ "clienttype TEXT NOT NULL,"
+			+ "phonenumber TEXT NOT NULL,"
+			+ "email TEXT NOT NULL,"
+			+ "address TEXT NOT NULL,"
+			+ "idcompany INTEGER,"
+			+ "FOREIGN KEY(idcompany) REFERENCES COMPANY(idcompany)"
+			+ ");";
+	
+	static String sqlFillClient = "INSERT INTO CLIENT(name, surname, clienttype, phonenumber, email, address, idcompany) values"
+			+ "('Janis','Ozols','sender','+37128282828','J.Ozo@inbox.lv','Pardaugavas Iela 66',1),"
+			+ "('Kaspars','Daugavins','reciever','+37121398563','Daugava@gmail.com','Ventspils Iela 3',null),"
+			+ "('Kristaps','Laipnais','sender','+37121398563','krishux@gmail.com','Roku Iela 51',2),"
+			+ "('Irina','Ivanova','reciever','+37122558899','IRinA@one.lv','Lidotaju Iela 5',null);";
+	
+	static String sqlCreateParcel = "CREATE TABLE PARCEL ("
+			+ "idparcel INTEGER PRIMARY KEY AUTOINCREMENT,"
+			+ "parcelcode TEXT NOT NULL,"
+			+ "size TEXT NOT NULL,"
+			+ "ispaid INTEGER NOT NULL,"
+			+ "isreturnable INTEGER NOT NULL,"
+			+ "idsender INTEGER NOT NULL REFERENCES CLIENT(idclient),"
+			+ "idreciever INTEGER NOT NULL REFERENCES CLIENT(idclient),"
+			+ "iddriver INTEGER REFERENCES DRIVER(iddriver)  ON DELETE SET NULL,"
+			+ "collectiondate TEXT"
+			+ ");";
 	@Override
 	public void start(Stage stage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MenuScene.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Pakomati.fxml"));
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
@@ -77,37 +119,43 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		stage.setTitle("PacinJums");
-		Image icon = new Image("/resources/images/pacinjumslogo.png");
+		Image icon = new Image("resources/images/pacinjumslogo.png");
 		stage.getIcons().add(icon);
 	}
 	
 	public static void main(String[] args) {
-		makeConnection();
-//		executeSqlScript(sqlCreateCountriesTable);
-//		executeSqlScript(sqlCreateGamesTable);
-//		executeSqlScript(sqlFillCountriesTable);
-//		executeSqlScript(sqlFillGameTable);
-//		getRecordsFromCountries();
-//		executeSqlScript(sqlCreateTransport);
-//		executeSqlScript("DELETE FROM 'TRANSPORT' WHERE numberplate='TT-9999'");
-//		executeSqlScript(sqlCreateDriver);
-//		executeSqlScript("ALTER TABLE DRIVER ADD COLUMN phonenumber VARCHAR(12);");
-//		executeSqlScript(sqlFillDriver);
-//		executeSqlScript(sqlFillPakomati);
+//		makeConnection();
+//		executeSqlScript(sqlCreateSkapisi);
+//		executeSqlScript("DROP TABLE CLIENT");
+//		executeSqlScript(sqlCreateClient);
+//		executeSqlScript(sqlCreateCompany);
+//		executeSqlScript(sqlFillClient);
+//		String size = "S";
+//		for(int i = 1;i<=5;i++) {
+//			for(int j=1;j<=60;j++) {
+//				if(j<=30) size = "S";
+//				else if(j>=31 && j<=50) size = "M";
+//				else if(j>=51 && j<=60) size = "L";
+//				executeSqlScript("INSERT INTO LOCKER(lockernumber, size, lockercode, idparcel, idparcelmachine, placeddate) values"
+//						+ "("+j+",'"+size+"',-1,null,"+i+",null)"
+//						+ ";");
+//			}
+//		}
+
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
 		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
 		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
 //		Parcel parcel1 = new Parcel(pm1, sender1, reciever1, Size.S, true, false, ParcelStatus.Pending, true);
 		Parcel parcel1 = new Parcel(sender1, reciever1, Size.S , true, ParcelStatus.Pending, false);
-		System.out.println(parcel1);
-		System.out.println(pm1);
+//		System.out.println(parcel1);
+//		System.out.println(pm1);
 		pm1.placeParcel(parcel1);
-		System.out.println(pm1);
-		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
+//		System.out.println(pm1);
+//		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
 		launch(args);
-		endConnection();
+//		endConnection();
 	}
 	
 	public static void makeConnection() {

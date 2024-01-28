@@ -51,7 +51,14 @@ public class Sutisana2Controller extends Controller {
         aizpilditsMob2.setText(jaunsKlients2.getPhoneNumber());
         aizpilditsEpasts2.setText(jaunsKlients2.getEmailAdress());       
     }
-	
+	public void setJaunsKlients2(Client jaunsKlients2) {
+        aizpilditsVards2.setText(jaunsKlients2.getName());
+        aizpilditsUzvards2.setText(jaunsKlients2.getSurname());
+        aizpilditsMob2.setText(jaunsKlients2.getPhoneNumber());
+        aizpilditsEpasts2.setText(jaunsKlients2.getEmailAdress());
+             
+    }
+
 	public void setJaunsPasutijums(Parcel jaunsSutijums) throws IOException {
 		this.jaunsSutijums = jaunsSutijums;
 	}
