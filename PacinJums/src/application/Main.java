@@ -141,6 +141,8 @@ public class Main extends Application {
 //						+ ";");
 //			}
 //		}
+		
+		
 
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
