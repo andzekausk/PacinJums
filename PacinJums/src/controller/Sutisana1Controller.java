@@ -42,11 +42,7 @@ public class Sutisana1Controller {
 	private Parent root;
 	
 	private Size izmers = Size.S;
-//	pacinasIzmers.selectedToggleProperty().addListener((observable, oldToggle, newToggle) -> {
-//		if (newToggle !=null) {
-//			RadioButton selectedRadioButton = (RadioButton) newToggle;
-//		}
-//	});
+
 	public void radioPogasIzvele(ActionEvent event) throws IOException {
 		if (radioButtonS.isSelected()) {
 			izmers = Size.S;
