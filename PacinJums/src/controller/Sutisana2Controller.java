@@ -18,7 +18,8 @@ import model.Parcel;
 
 public class Sutisana2Controller extends Controller {
 	@FXML
-	private Label aizpilditsVards, aizpilditsUzvards, aizpilditsMob, aizpilditsEpasts, aizpilditsVards2, aizpilditsUzvards2, aizpilditsMob2, aizpilditsEpasts2;
+	private Label aizpilditsVards, aizpilditsUzvards, aizpilditsMob, aizpilditsEpasts, aizpilditaAdrese, aizpilditsVards2,
+	aizpilditsUzvards2,aizpilditsMob2, aizpilditsEpasts2, aizpilditaAdrese2;
 
 	 @FXML
 	 private RadioButton poga1, poga2, poga3, poga4;
@@ -43,21 +44,23 @@ public class Sutisana2Controller extends Controller {
         aizpilditsUzvards.setText(jaunsKlients.getSurname());
         aizpilditsMob.setText(jaunsKlients.getPhoneNumber());
         aizpilditsEpasts.setText(jaunsKlients.getEmailAdress());
+        aizpilditaAdrese.setText(jaunsKlients.getAddress());
     }
 	public void setJaunsKlients2(Client jaunsKlients2) throws IOException {
 		this.jaunsKlients2 = jaunsKlients2;
         aizpilditsVards2.setText(jaunsKlients2.getName());
         aizpilditsUzvards2.setText(jaunsKlients2.getSurname());
         aizpilditsMob2.setText(jaunsKlients2.getPhoneNumber());
-        aizpilditsEpasts2.setText(jaunsKlients2.getEmailAdress());       
-    }
-	public void setJaunsKlients2(Client jaunsKlients2) {
-        aizpilditsVards2.setText(jaunsKlients2.getName());
-        aizpilditsUzvards2.setText(jaunsKlients2.getSurname());
-        aizpilditsMob2.setText(jaunsKlients2.getPhoneNumber());
         aizpilditsEpasts2.setText(jaunsKlients2.getEmailAdress());
-             
+        aizpilditaAdrese2.setText(jaunsKlients2.getAddress());
     }
+//	public void setJaunsKlients2(Client jaunsKlients2) {
+//        aizpilditsVards2.setText(jaunsKlients2.getName());
+//        aizpilditsUzvards2.setText(jaunsKlients2.getSurname());
+//        aizpilditsMob2.setText(jaunsKlients2.getPhoneNumber());
+//        aizpilditsEpasts2.setText(jaunsKlients2.getEmailAdress());
+//             
+//    }
 
 	public void setJaunsPasutijums(Parcel jaunsSutijums) throws IOException {
 		this.jaunsSutijums = jaunsSutijums;

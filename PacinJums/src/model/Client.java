@@ -76,7 +76,7 @@ public class Client extends Person{
 	
 	private  int clientID ;
 	private static int counter = 1;
-	private static String address;
+	private String address;
 	
 	public void setClientID() {
 		clientID = counter;
@@ -87,7 +87,7 @@ public class Client extends Person{
 		return clientID;
 	}
 	
-	public static void setAddress(String inputAddress) {
+	public void setAddress(String inputAddress) {
 		if(inputAddress != null && inputAddress.length() > 3 && inputAddress.matches("[A-Za-z]{1,20}\s[A-Za-z]{1,20}\s[0-9]{1,4}"))
 		address = inputAddress;
 		else {
@@ -95,7 +95,7 @@ public class Client extends Person{
 		}
 	}
 	
-	public static String getAddress() {
+	public String getAddress() {
 		return address;
 	}
 	public Client() {
