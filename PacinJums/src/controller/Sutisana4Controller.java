@@ -6,12 +6,25 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import model.Client;
 import model.Parcel;
+import model.ParcelMachine;
 
 public class Sutisana4Controller extends Controller{
 	@FXML
-	Button pogaPabeigt;
+	Button pogaPabeigt, lockerDoor;
+	
+	@FXML
+	RadioButton pogaKurzeme, pogaZemgale, pogaVidzeme, pogaLatgale, pogaRiga;
+	
+	@FXML
+	ToggleGroup RegionSelect;
+	@FXML
+	Label lockerNumber;
+	
 	Client jaunsKlients = null;
 	Client jaunsKlients2 = null;
 
@@ -25,6 +38,16 @@ public class Sutisana4Controller extends Controller{
 		jaunsSutijums.setSender(jaunsKlients);
 		jaunsSutijums.setReciever(jaunsKlients2);
 		System.out.println(jaunsSutijums);
+	}
+	
+	public void ParcelAllocation() {
+		if (pogaKurzeme.isSelected()) {
+			ParcelMachine thisMachine = new ParcelMachine(null, null, 0, 0, 0);
+		}
+	}
+	
+	public void DoorClosed (ActionEvent event) throws IOException {
+		lockerNumber.setText("");
 	}
 	
 	public void pabeigt(ActionEvent event) throws IOException {
