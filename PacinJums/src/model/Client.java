@@ -95,6 +95,9 @@ public class Client extends Person{
 		}
 	}
 	
+	public static String getAddress() {
+		return address;
+	}
 	public Client() {
 		super();
 		setClientID();

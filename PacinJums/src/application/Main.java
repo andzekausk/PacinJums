@@ -110,7 +110,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("MenuScene.fxml"));
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Pakomati.fxml"));
 			Scene scene = new Scene(root);
 			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			stage.setScene(scene);
@@ -119,12 +119,12 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 		stage.setTitle("PacinJums");
-		Image icon = new Image("/resources/images/pacinjumslogo.png");
+		Image icon = new Image("resources/images/pacinjumslogo.png");
 		stage.getIcons().add(icon);
 	}
 	
 	public static void main(String[] args) {
-		makeConnection();
+//		makeConnection();
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
 //		executeSqlScript(sqlCreateClient);
@@ -141,8 +141,6 @@ public class Main extends Application {
 //						+ ";");
 //			}
 //		}
-		
-		
 
 		
 		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
@@ -157,7 +155,7 @@ public class Main extends Application {
 //		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
 		launch(args);
-		endConnection();
+//		endConnection();
 	}
 	
 	public static void makeConnection() {
