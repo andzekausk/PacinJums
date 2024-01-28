@@ -24,13 +24,7 @@ public class MenuController extends Controller{
 	private ImageView atgriesanasBilde;
 	
 	@FXML
-	private Button sanemsanasPoga;
-	
-	@FXML
-	private Button sutisanasPoga;
-	
-	@FXML
-	private Button atgriesanasPoga;
+	private Button sanemsanasPoga, sutisanasPoga, atgriesanasPoga, testaVide;
 	
 //	private Stage stage;
 //	private Scene scene;
@@ -74,4 +68,7 @@ public class MenuController extends Controller{
 //		stage.setScene(scene);
 //		stage.show();
 //	}
+	public void dotiesUzTestu(ActionEvent event) throws IOException {
+		changeScene(testaVide, "/application/TestaVide1.fxml");
+	}
 }
