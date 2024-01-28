@@ -33,13 +33,13 @@ public class PakomatiController extends Controller{
 	@FXML
 	private void initialize() {
 //		makeConnection();
-		parcelMachineSelection.setItems(FXCollections.observableArrayList(getData()));
+		parcelMachineSelection.setItems(FXCollections.observableArrayList(getParcelMachineSelection()));
 	}
 	
-	private List<String> getData(){
+	private List<String> getParcelMachineSelection(){
 		List<String> selection = new ArrayList<>();
 		String str1;
-		String SqlSelectMachine = "SELECT address, workingregion FROM PARCELMACHINE;";
+		String SqlSelectMachine = "SELECT * FROM PARCELMACHINE;";
 		makeConnection();
 		try {
 			stmt = c.createStatement();
@@ -54,5 +54,35 @@ public class PakomatiController extends Controller{
 		}
 		endConnection();
 		return selection;
+	}
+	
+	public void getParcelMachineContent() {
+		try {
+			stmt = c.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// execute select query
+		ResultSet rs = null;
+		try {
+			rs = stmt.executeQuery( "SELECT * FROM LOCKER WHERE idparcelmachine=1;" );
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// iterate through all the returned lines and for each do:
+		try {
+			while ( rs.next() ) {
+			int id = rs.getInt("id"); //parse an integer from field “id”
+			String name = rs.getString("name"); //parse string from field “name”
+			String abbr = rs.getString("ABBR");
+			System.out.println( "ID = " + id +"\t CODE = " + abbr+"\t Country = " +
+			name);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
