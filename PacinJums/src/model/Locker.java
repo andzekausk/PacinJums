@@ -1,13 +1,27 @@
 package model;
 
-public class Locker {
-	private int lockerNumber;
-    private Size size;
-    private Parcel parcel;
-    private boolean isEmpty = true;
-    private long unlockCode;
-    
+import java.sql.Date;
 
+public class Locker {
+	private int idlocker;
+	private int lockerNumber;
+    private String size;
+    private long lockerCode;
+    private int idparcelmachine;
+    private int idparcel;
+    private String placedDate;
+	
+
+	public int getIdlocker() {
+		return idlocker;
+	}
+	public void setIdlocker(int idlocker) {
+		if(idlocker>0)
+			this.idlocker = idlocker;
+		else
+			this.idlocker = -1;
+	}
+	
 	public int getLockerNumber() {
 		return lockerNumber;
 	}
@@ -18,66 +32,83 @@ public class Locker {
 			this.lockerNumber = -1;
 	}
 	
-	public Size getSize() {
+	public String getSize() {
 		return size;
 	}
-	public void setSize(Size size) {
-		if(size!=null)
+	public void setSize(String size) {
+		if(size!=null &&(size.matches("S") || size.matches("M") || size.matches("L")))
 			this.size = size;
-	}
-	
-	public Parcel getParcel() {
-		return parcel;
-	}
-	public void setParcel(Parcel parcel) {
-		if(parcel!=null) {
-			this.parcel = parcel;
-			setEmpty(false);
-		}
-		else {
-			this.parcel = null;
-			setEmpty(true);
-		}
-	}
-	
-	public boolean isEmpty() {
-		return isEmpty;
-	}
-	public void setEmpty(boolean isEmpty) {
-		this.isEmpty = isEmpty;
-	}
-	
-	public long getUnlockCode() {
-		return unlockCode;
-	}
-	public void setUnlockCode(long unlockCode) {
-		if(unlockCode>99999 && unlockCode<1000000)
-			this.unlockCode = unlockCode;
 		else
-			this.unlockCode = -1;
+			this.size = "S";
+	}
+	
+	public int getIdparcel() {
+		return idparcel;
+	}
+	
+	public void setIdparcel(int idparcel) {
+		if(idparcel>0)
+			this.idparcel = idparcel;
+		else
+			this.idparcel = -1;
+		
 	}
 
-    public Locker() {
-    	setLockerNumber(-1);
-    	setSize(Size.S);
-    	setParcel(null);
-		setUnlockCode(-1);
-    }
-	public Locker(int lockerNumber, Size size, Parcel parcel, long unlockCode) {
-    	setLockerNumber(lockerNumber);
-    	setSize(size);
-    	setParcel(parcel);
-		setUnlockCode(unlockCode);
+	public int getIdparcelmachine() {
+		return idparcelmachine;
+	}
+	public void setIdparcelmachine(int idparcelmachine) {
+		if(idparcelmachine>0)
+			this.idparcelmachine = idparcelmachine;
+		else
+			this.idparcelmachine = -1;
+	}
+	public long getLockerCode() {
+		return lockerCode;
+	}
+	public void setLockerCode(long lockerCode) {
+		if(lockerCode>99999 && lockerCode<1000000)
+			this.lockerCode = lockerCode;
+		else
+			this.lockerCode = -1;
+	}
+
+	public String getPlacedDate() {
+		return placedDate;
+	}
+	public void setPlacedDate(String placedDate) {
+		if(placedDate!=null)
+			this.placedDate = placedDate;
+		else
+			this.placedDate = "0000-00-00";
+	}
+	public Locker() {
+		setIdlocker(0);
+		setLockerNumber(0);
+		setSize(null);
+		setLockerCode(0);
+		setIdparcelmachine(0);
+		setIdparcel(0);
+		setPlacedDate(null);
+	}
+	
+	public Locker(int idlocker, int lockerNumber, String size, long lockerCode, int idparcelmachine, int idparcel, String placedDate) {
+		setIdlocker(idlocker);
+		setLockerNumber(lockerNumber);
+		setSize(size);
+		setLockerCode(lockerCode);
+		setIdparcelmachine(idparcelmachine);
+		setIdparcel(idparcel);
+		setPlacedDate(placedDate);
 	}
 	@Override
 	public String toString() {
-		if (getParcel()==null)
-			return "\nLocker number: " + getLockerNumber() + ", Size: " + getSize() + ", Parcel ID: "
-					+ getParcel() + ", Empty: " + isEmpty() + ", Unlock Code: " + getUnlockCode();
-		else
-			return "\nLocker number: " + getLockerNumber() + ", Size: " + getSize() + ", Parcel ID: "
-			+ getParcel().getParcelID() + ", Empty: " + isEmpty() + ", Unlock Code: " + getUnlockCode();
+		return "Locker [idlocker=" + idlocker + ", lockerNumber=" + lockerNumber + ", size=" + size + ", lockerCode="
+				+ lockerCode + ", idparcelmachine=" + idparcelmachine + ", idparcel=" + idparcel + ", placedDate="
+				+ placedDate + "]";
 	}
+	
+
 	
 	
     
