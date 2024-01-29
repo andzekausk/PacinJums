@@ -46,39 +46,7 @@ public class Sanemsana1Controller extends Controller{
 	public void dzestVisu (ActionEvent event) throws IOException {
 		kodaVieta.deleteText(0, kodaVieta.getLength());
 	}
-//	public void getParcelCodes() {
-//		try {
-//			stmt = c.createStatement();
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		// execute select query
-//		ResultSet rs = null;
-//		try {
-//			rs = stmt.executeQuery( "SELECT lockercode FROM LOCKER WHERE idparcelmachine=1;" );
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		// iterate through all the returned lines and for each do:
-//		try {
-//			while ( rs.next() ) {
-//				int id = rs.getInt("id"); //parse an integer from field “id”
-////				String name = rs.getString("name"); //parse string from field “name”
-////				String abbr = rs.getString("ABBR");
-////				System.out.println( "ID = " + id +"\t CODE = " + abbr+"\t Country = " +
-////						name);
-//				if (kodaVieta.getText().matches(rs.getString("lockercode"))) {
-//					pareizais_kods = rs.getString("lockercode");
-//					System.out.println(pareizais_kods);
-//				}
-//			}
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+
 	public static String searchLockerByCode(String value) {
 		makeConnection();
 		try {
@@ -108,11 +76,39 @@ public class Sanemsana1Controller extends Controller{
 
     }
 	
+//	public static void deleteLockerByCode(String value) {
+//	    makeConnection();
+//	    try {
+//	        String query = "DELETE FROM locker WHERE lockercode = ?";
+//	        try (PreparedStatement statement = c.prepareStatement(query)) {
+//	            statement.setString(1, value);
+//	            statement.executeUpdate();
+//	        }
+//	    } catch (SQLException e) {
+//	        e.printStackTrace();
+//	    }
+//	}
+	
+	public void updateLockerCode(String oldValue, String newValue) {
+	    makeConnection();
+	    try {
+	        String query = "UPDATE locker SET lockercode = ? WHERE lockercode = ?";
+	        try (PreparedStatement statement = c.prepareStatement(query)) {
+	            statement.setString(1, newValue);
+	            statement.setString(2, oldValue);
+	            statement.executeUpdate();
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } 
+	}
+	
 	public void sanemt2(ActionEvent event) throws IOException {
 		pareizais_kods = searchLockerByCode(kodaVieta.getText());
 		if (pareizais_kods !=null) {
 			System.out.println(pareizais_kods);
 		changeScene(pogaTurpinat, "/application/Sanemsana2.fxml");
+		updateLockerCode(kodaVieta.getText(), "-1");
 		}
 		else {
 			label1.setText("Kļūda! Ievadi saņemšanas kodu");

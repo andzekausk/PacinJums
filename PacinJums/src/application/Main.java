@@ -126,7 +126,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		makeConnection();
-//		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
+		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
 //		executeSqlScript(sqlCreateClient);
