@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.ComboBox;
@@ -39,9 +40,15 @@ public class PakomatiController extends Controller {
 	private void initialize() {
 //		makeConnection();
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getParcelMachineSelection()));
-		getParcelMachineContent(2);
+		getParcelMachineContent(-1);
 		System.out.println(parcelMachineSelection.getSelectionModel().getSelectedIndex());
 //		getParcelMachineContent();
+	}
+	
+	@FXML
+	private void parcelMachineSelected(ActionEvent event) {
+//		selected
+		getParcelMachineContent(1);
 	}
 
 	private List<String> getParcelMachineSelection() {
@@ -98,4 +105,5 @@ public class PakomatiController extends Controller {
 		}
 		endConnection();
 	}
+	
 }

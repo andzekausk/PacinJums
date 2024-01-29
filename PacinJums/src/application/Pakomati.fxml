@@ -10,7 +10,7 @@
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="542.0" spacing="20.0">
          <children>
-            <ComboBox fx:id="parcelMachineSelection" prefWidth="150.0" promptText="Izvēlieties pakomatu" />
+            <ComboBox fx:id="parcelMachineSelection" onAction="#parcelMachineSelected" prefWidth="150.0" promptText="Izvēlieties pakomatu" />
             <TableView fx:id="parcelMachineContent" prefHeight="200.0" prefWidth="390.0">
               <columns>
                 <TableColumn fx:id="idlocker" prefWidth="54.40008544921875" text="idlocker" />
