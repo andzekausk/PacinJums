@@ -22,7 +22,7 @@
                   <Font name="System Italic" size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="kodaVieta" layoutX="490.0" layoutY="291.0" onKeyPressed="#izslegtIevadi" prefHeight="30.0" prefWidth="220.0" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="491.0">
+            <TextField fx:id="kodaVieta" layoutX="490.0" layoutY="291.0" prefHeight="30.0" prefWidth="220.0" AnchorPane.leftAnchor="490.0" AnchorPane.rightAnchor="491.0">
                <font>
                   <Font name="System Italic" size="14.0" />
                </font>
