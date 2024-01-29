@@ -37,6 +37,7 @@ public class Sutisana4Controller extends Controller{
 		System.out.println(jaunsSutijums);
 	}
 	
+
 	public void DoorClosed (ActionEvent event) throws IOException {
 		lockerNumber.setText("");
 	}
