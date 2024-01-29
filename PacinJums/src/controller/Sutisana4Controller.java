@@ -42,7 +42,7 @@ public class Sutisana4Controller extends Controller{
 	
 	public void ParcelAllocation() {
 		if (pogaKurzeme.isSelected()) {
-			ParcelMachine thisMachine = new ParcelMachine(null, null, 0, 0, 0);
+			ParcelMachine thisMachine = new ParcelMachine(0, null, null);
 		}
 	}
 	
