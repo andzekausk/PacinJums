@@ -118,6 +118,7 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		stage.setResizable(false);
 		stage.setTitle("PacinJums");
 		Image icon = new Image("/resources/images/pacinjumslogo.png");
 		stage.getIcons().add(icon);
@@ -125,7 +126,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		makeConnection();
-		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
+//		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
 //		executeSqlScript(sqlCreateClient);

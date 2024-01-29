@@ -38,29 +38,46 @@ public class PakomatiController extends Controller {
 
 	@FXML
 	private void initialize() {
-//		makeConnection();
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getParcelMachineSelection()));
-		getParcelMachineContent(-1);
-		System.out.println(parcelMachineSelection.getSelectionModel().getSelectedIndex());
-//		getParcelMachineContent();
 	}
 	
 	@FXML
 	private void parcelMachineSelected(ActionEvent event) {
-//		selected
-		getParcelMachineContent(1);
+		parcelMachineContent.getItems().clear();
+		String location = parcelMachineSelection.getValue();
+		int selected;
+		switch(location) {
+		case "Ventspils Iela 5, Kurzeme":
+			selected = 1;
+			break;
+		case "Baložu iela 69, Vidzeme":
+			selected = 2;
+			break;
+		case "Sanatorijas Iela 7, Zemgale":
+			selected = 3;
+			break;
+		case "Ģenerāļa Bulvāris 70, Latgale":
+			selected = 4;
+			break;
+		case "Ventspils Iela 45, Riga":
+			selected = 5;
+			break;
+		default:
+			selected = -1;
+		}
+			
+		getParcelMachineContent(selected);
 	}
 
 	private List<String> getParcelMachineSelection() {
 		List<String> selection = new ArrayList<>();
 		String str1;
-		String SqlSelectMachine = "SELECT * FROM PARCELMACHINE;";
 		makeConnection();
 		try {
 			stmt = c.createStatement();
-			ResultSet set = stmt.executeQuery(SqlSelectMachine);
-			while (set.next()) {
-				str1 = set.getString("address") + ", " + set.getString("workingregion");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM PARCELMACHINE;");
+			while (rs.next()) {
+				str1 = rs.getString("address") + ", " + rs.getString("workingregion");
 				selection.add(str1);
 			}
 		} catch (SQLException e) {
@@ -97,7 +114,6 @@ public class PakomatiController extends Controller {
 				row = new Locker(rs.getInt("idlocker"), rs.getInt("lockernumber"), rs.getString("size"),
 						rs.getLong("lockercode"), rs.getInt("idparcelmachine"), rs.getInt("idparcel"),
 						rs.getString("placeddate"));
-				System.out.println(row);
 				parcelMachineContent.getItems().add(row);
 			}
 		} catch (SQLException e) {
