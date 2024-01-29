@@ -72,13 +72,12 @@ public class PakomatiController extends Controller {
 	private List<String> getParcelMachineSelection() {
 		List<String> selection = new ArrayList<>();
 		String str1;
-		String SqlSelectMachine = "SELECT * FROM PARCELMACHINE;";
 		makeConnection();
 		try {
 			stmt = c.createStatement();
-			ResultSet set = stmt.executeQuery(SqlSelectMachine);
-			while (set.next()) {
-				str1 = set.getString("address") + ", " + set.getString("workingregion");
+			ResultSet rs = stmt.executeQuery("SELECT * FROM PARCELMACHINE;");
+			while (rs.next()) {
+				str1 = rs.getString("address") + ", " + rs.getString("workingregion");
 				selection.add(str1);
 			}
 		} catch (SQLException e) {
@@ -115,7 +114,6 @@ public class PakomatiController extends Controller {
 				row = new Locker(rs.getInt("idlocker"), rs.getInt("lockernumber"), rs.getString("size"),
 						rs.getLong("lockercode"), rs.getInt("idparcelmachine"), rs.getInt("idparcel"),
 						rs.getString("placeddate"));
-//				System.out.println(row);
 				parcelMachineContent.getItems().add(row);
 			}
 		} catch (SQLException e) {
