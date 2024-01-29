@@ -39,8 +39,9 @@ public class PakomatiController extends Controller {
 	private void initialize() {
 //		makeConnection();
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getParcelMachineSelection()));
-//		getParcelMachineContent(1);
-		getParcelMachineContent();
+		getParcelMachineContent(2);
+		System.out.println(parcelMachineSelection.getSelectionModel().getSelectedIndex());
+//		getParcelMachineContent();
 	}
 
 	private List<String> getParcelMachineSelection() {
@@ -63,7 +64,7 @@ public class PakomatiController extends Controller {
 		return selection;
 	}
 
-	public void getParcelMachineContent() {
+	public void getParcelMachineContent(int selectedIndex) {
 		makeConnection();
 		idlocker.setCellValueFactory(new PropertyValueFactory<>("idlocker"));
 		lockernumber.setCellValueFactory(new PropertyValueFactory<>("lockerNumber"));
@@ -80,7 +81,7 @@ public class PakomatiController extends Controller {
 		ResultSet rs = null;
 		Locker row = new Locker();
 		try {
-			rs = stmt.executeQuery("SELECT * FROM LOCKER WHERE idparcelmachine=1;");
+			rs = stmt.executeQuery("SELECT * FROM LOCKER WHERE idparcelmachine="+selectedIndex+";");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
