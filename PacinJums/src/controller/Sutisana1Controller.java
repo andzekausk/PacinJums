@@ -1,7 +1,12 @@
 package controller;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,6 +14,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
@@ -21,7 +27,7 @@ import model.ParcelStatus;
 import model.Size;
 
 
-public class Sutisana1Controller {
+public class Sutisana1Controller  extends Controller{
 	@FXML
 	private RadioButton radioButtonS, radioButtonM, radioButtonL;
 	
@@ -29,7 +35,11 @@ public class Sutisana1Controller {
 	private ToggleGroup pacinasIzmers;
 	
 	@FXML
-	private TextField nosutVards, nosutUzvards, nosutMob, nosutEpasts, sanemVards, sanemUzvards, sanemMob, sanemEpasts, sanemAdrese;
+	private TextField nosutVards, nosutUzvards, nosutMob, nosutEpasts, sanemVards, sanemUzvards, sanemMob,
+	sanemEpasts, sanemAdrese;
+	
+	@FXML
+	private ComboBox<String> parcelMachineSelection;
 	
 	@FXML
 	private Label vietaZinai;
@@ -42,11 +52,11 @@ public class Sutisana1Controller {
 	private Parent root;
 	
 	private Size izmers = Size.S;
-//	pacinasIzmers.selectedToggleProperty().addListener((observable, oldToggle, newToggle) -> {
-//		if (newToggle !=null) {
-//			RadioButton selectedRadioButton = (RadioButton) newToggle;
-//		}
-//	});
+  @FXML
+	private void initialize() {
+		parcelMachineSelection.setItems(FXCollections.observableArrayList(getData()));
+	}
+  
 	public void radioPogasIzvele(ActionEvent event) throws IOException {
 		if (radioButtonS.isSelected()) {
 			izmers = Size.S;
@@ -68,7 +78,7 @@ public class Sutisana1Controller {
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
-			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), null);
+			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), parcelMachineSelection.getValue());
 			
 			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText());
 			
@@ -82,7 +92,8 @@ public class Sutisana1Controller {
 					jaunsKlients2.getName().matches("Vards") || 
 					jaunsKlients2.getSurname().matches("Uzvards") ||
 					jaunsKlients2.getPhoneNumber().matches("12345678") ||
-					jaunsKlients2.getEmailAdress().matches("epasts@epasts.lv")) {
+					jaunsKlients2.getEmailAdress().matches("epasts@epasts.lv") ||
+					jaunsKlients2.getAddress().matches("Nav adrese")) {
 				vietaZinai.setText("Nekorekta datu ievade");
 			}
 			else {
@@ -94,7 +105,6 @@ public class Sutisana1Controller {
 				sutisana2Controller.setJaunsKlients(jaunsKlients);
 				sutisana2Controller.setJaunsKlients2(jaunsKlients2);
 				sutisana2Controller.setJaunsPasutijums(jaunsSutijums);
-
 				
 				stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 				scene = new Scene(root);
@@ -125,5 +135,25 @@ public class Sutisana1Controller {
 		Button poga = (Button) event.getSource();
 		nosutMob.setText(nosutMob.getText()+ poga.getText());
 	}
+	@FXML
 	
+	private List<String> getData(){
+		List<String> selection = new ArrayList<>();
+		String str1;
+		String SqlSelectMachine = "SELECT address, workingregion FROM PARCELMACHINE;";
+		makeConnection();
+		try {
+			stmt = c.createStatement();
+			ResultSet set = stmt.executeQuery(SqlSelectMachine);
+			while(set.next()) {
+				str1 = set.getString("address"); // +", "+set.getString("workingregion");
+				selection.add(str1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		endConnection();
+		return selection;
+	}
 }

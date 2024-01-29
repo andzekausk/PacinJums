@@ -118,13 +118,15 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
+		stage.setResizable(false);
 		stage.setTitle("PacinJums");
 		Image icon = new Image("/resources/images/pacinjumslogo.png");
 		stage.getIcons().add(icon);
 	}
 	
 	public static void main(String[] args) {
-//		makeConnection();
+		makeConnection();
+//		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
 //		executeSqlScript(sqlCreateClient);
@@ -155,7 +157,7 @@ public class Main extends Application {
 //		System.out.println(pm1.getLockersBySize(Size.M, pm1.getAllLockers()));
 		
 		launch(args);
-//		endConnection();
+		endConnection();
 	}
 	
 	public static void makeConnection() {

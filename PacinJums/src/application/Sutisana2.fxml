@@ -44,6 +44,11 @@
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
+                  <Label fx:id="aizpilditaAdrese" text="Adrese" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
             <VBox layoutX="696.0" layoutY="186.0" prefHeight="171.0" prefWidth="306.0">
@@ -69,6 +74,11 @@
                      </font>
                   </Label>
                   <Label fx:id="aizpilditsEpasts2" text="Epasts" textFill="#c63535">
+                     <font>
+                        <Font name="System Italic" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="aizpilditaAdrese2" text="Adrese" textFill="#c63535">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
