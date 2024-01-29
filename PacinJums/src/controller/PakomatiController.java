@@ -15,7 +15,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import model.Locker;
 
-public class PakomatiController extends Controller{
+public class PakomatiController extends Controller {
 	@FXML
 	private ComboBox<String> parcelMachineSelection;
 	@FXML
@@ -42,8 +42,8 @@ public class PakomatiController extends Controller{
 //		getParcelMachineContent(1);
 		getParcelMachineContent();
 	}
-	
-	private List<String> getParcelMachineSelection(){
+
+	private List<String> getParcelMachineSelection() {
 		List<String> selection = new ArrayList<>();
 		String str1;
 		String SqlSelectMachine = "SELECT * FROM PARCELMACHINE;";
@@ -51,8 +51,8 @@ public class PakomatiController extends Controller{
 		try {
 			stmt = c.createStatement();
 			ResultSet set = stmt.executeQuery(SqlSelectMachine);
-			while(set.next()) {
-				str1 = set.getString("address")+", "+set.getString("workingregion");
+			while (set.next()) {
+				str1 = set.getString("address") + ", " + set.getString("workingregion");
 				selection.add(str1);
 			}
 		} catch (SQLException e) {
@@ -62,12 +62,16 @@ public class PakomatiController extends Controller{
 		endConnection();
 		return selection;
 	}
-	
+
 	public void getParcelMachineContent() {
 		makeConnection();
 		idlocker.setCellValueFactory(new PropertyValueFactory<>("idlocker"));
 		lockernumber.setCellValueFactory(new PropertyValueFactory<>("lockerNumber"));
 		size.setCellValueFactory(new PropertyValueFactory<>("size"));
+		unlockCode.setCellValueFactory(new PropertyValueFactory<>("lockerCode"));
+		idparcelmachine.setCellValueFactory(new PropertyValueFactory<>("idparcelmachine"));
+		idparcel.setCellValueFactory(new PropertyValueFactory<>("idparcel"));
+		placeddate.setCellValueFactory(new PropertyValueFactory<>("placedDate"));
 		try {
 			stmt = c.createStatement();
 		} catch (SQLException e) {
@@ -76,13 +80,15 @@ public class PakomatiController extends Controller{
 		ResultSet rs = null;
 		Locker row = new Locker();
 		try {
-			rs = stmt.executeQuery( "SELECT * FROM LOCKER WHERE idparcelmachine=1;" );
+			rs = stmt.executeQuery("SELECT * FROM LOCKER WHERE idparcelmachine=1;");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		try {
-			while ( rs.next() ) {
-				row = new Locker(rs.getInt("idlocker"), rs.getInt("lockernumber"), rs.getString("size"), rs.getLong("lockercode"), rs.getInt("idparcelmachine") ,rs.getInt("idparcel"), rs.getString("placeddate"));
+			while (rs.next()) {
+				row = new Locker(rs.getInt("idlocker"), rs.getInt("lockernumber"), rs.getString("size"),
+						rs.getLong("lockercode"), rs.getInt("idparcelmachine"), rs.getInt("idparcel"),
+						rs.getString("placeddate"));
 				System.out.println(row);
 				parcelMachineContent.getItems().add(row);
 			}

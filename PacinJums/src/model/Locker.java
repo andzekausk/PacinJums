@@ -58,7 +58,7 @@ public class Locker {
 		return idparcelmachine;
 	}
 	public void setIdparcelmachine(int idparcelmachine) {
-		if(idparcel>0)
+		if(idparcelmachine>0)
 			this.idparcelmachine = idparcelmachine;
 		else
 			this.idparcelmachine = -1;
