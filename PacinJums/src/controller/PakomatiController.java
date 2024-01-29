@@ -11,29 +11,36 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import model.Locker;
 
 public class PakomatiController extends Controller{
 	@FXML
 	private ComboBox<String> parcelMachineSelection;
 	@FXML
-	private TableColumn idlocker;
+	private TableView<Locker> parcelMachineContent;
 	@FXML
-	private TableColumn lockernumber;
+	private TableColumn<Locker, Integer> idlocker;
 	@FXML
-	private TableColumn size;
+	private TableColumn<Locker, Integer> lockernumber;
 	@FXML
-	private TableColumn unlockCode;
+	private TableColumn<Locker, String> size;
 	@FXML
-	private TableColumn idparcelmachine;
+	private TableColumn<Locker, Long> unlockCode;
 	@FXML
-	private TableColumn idparcel;
+	private TableColumn<Locker, Integer> idparcelmachine;
 	@FXML
-	private TableColumn placeddate;
+	private TableColumn<Locker, Integer> idparcel;
+	@FXML
+	private TableColumn<Locker, String> placeddate;
 
 	@FXML
 	private void initialize() {
 //		makeConnection();
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getParcelMachineSelection()));
+//		getParcelMachineContent(1);
+		getParcelMachineContent();
 	}
 	
 	private List<String> getParcelMachineSelection(){
@@ -57,32 +64,31 @@ public class PakomatiController extends Controller{
 	}
 	
 	public void getParcelMachineContent() {
+		makeConnection();
+		idlocker.setCellValueFactory(new PropertyValueFactory<>("idlocker"));
+		lockernumber.setCellValueFactory(new PropertyValueFactory<>("lockerNumber"));
+		size.setCellValueFactory(new PropertyValueFactory<>("size"));
 		try {
 			stmt = c.createStatement();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// execute select query
 		ResultSet rs = null;
+		Locker row = new Locker();
 		try {
 			rs = stmt.executeQuery( "SELECT * FROM LOCKER WHERE idparcelmachine=1;" );
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		// iterate through all the returned lines and for each do:
 		try {
 			while ( rs.next() ) {
-			int id = rs.getInt("id"); //parse an integer from field “id”
-			String name = rs.getString("name"); //parse string from field “name”
-			String abbr = rs.getString("ABBR");
-			System.out.println( "ID = " + id +"\t CODE = " + abbr+"\t Country = " +
-			name);
+				row = new Locker(rs.getInt("idlocker"), rs.getInt("lockernumber"), rs.getString("size"), rs.getLong("lockercode"), rs.getInt("idparcelmachine") ,rs.getInt("idparcel"), rs.getString("placeddate"));
+				System.out.println(row);
+				parcelMachineContent.getItems().add(row);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		endConnection();
 	}
 }

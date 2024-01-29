@@ -6,13 +6,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.PakomatiController">
    <children>
       <VBox layoutX="14.0" layoutY="14.0" prefHeight="363.0" prefWidth="542.0" spacing="20.0">
          <children>
             <ComboBox fx:id="parcelMachineSelection" prefWidth="150.0" promptText="Izvēlieties pakomatu" />
-            <TableView prefHeight="200.0" prefWidth="390.0">
+            <TableView fx:id="parcelMachineContent" prefHeight="200.0" prefWidth="390.0">
               <columns>
                 <TableColumn fx:id="idlocker" prefWidth="54.40008544921875" text="idlocker" />
                 <TableColumn fx:id="lockernumber" prefWidth="86.39996337890625" text="lockernumber" />
