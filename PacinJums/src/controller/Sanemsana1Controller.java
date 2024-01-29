@@ -94,9 +94,10 @@ public class Sanemsana1Controller extends Controller{
 			try (PreparedStatement statement = c.prepareStatement(query)) {
 				statement.setString(1, value);
 				try (ResultSet resultset = statement.executeQuery()) {
-					 StringBuilder resultStringBuilder = new StringBuilder();
-					 resultStringBuilder.append(resultset.getString("lockercode"));
-				return resultStringBuilder.toString();
+//					 StringBuilder resultStringBuilder = new StringBuilder();
+//					 resultStringBuilder.append(resultset.getString("lockercode"));
+//					 return resultStringBuilder.toString();
+					return resultset.getString("lockercode");
 				}
 			
 			}
