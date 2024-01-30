@@ -6,12 +6,17 @@ import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 //import javafx.fxml.FXMLLoader;
 //import javafx.scene.Parent;
 //import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
 //import javafx.stage.Stage;
 //import javafx.scene.Node;
 import java.sql.PreparedStatement;
@@ -29,6 +34,9 @@ public class Sanemsana1Controller extends Controller{
 	
 	String pareizais_kods;
 	
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
 	public void izslegtIevadi() throws IOException {
 		kodaVieta.setEditable(false);
 	}
@@ -99,11 +107,36 @@ public class Sanemsana1Controller extends Controller{
 
     }
 	
+	public static String searchLockerByCode2(String value) {
+		makeConnection();
+		try {
+		stmt = c.createStatement();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+		ResultSet rs = null;
+			String query = "SELECT * FROM locker WHERE lockercode = "+value+";";
+			try {
+				rs = stmt.executeQuery( query );
+				rs.getInt("lockernumber");
+				return rs.getString("lockernumber");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return null;
+			}
+
+    }
 	public void sanemt2(ActionEvent event) throws IOException {
 		pareizais_kods = searchLockerByCode(kodaVieta.getText());
 		if (pareizais_kods !=null) {
 			System.out.println(pareizais_kods);
 		changeScene(pogaTurpinat, "/application/Sanemsana2.fxml");
+		FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sanemsana2.fxml"));
+		root = loader.load();
+		
+		Sanemsana2Controller sanemsana2Controller = loader.getController();
+		sanemsana2Controller.setSendLockerNumber(searchLockerByCode2(kodaVieta.getText()));
 		}
 		else {
 			label1.setText("Kļūda! Ievadi saņemšanas kodu");

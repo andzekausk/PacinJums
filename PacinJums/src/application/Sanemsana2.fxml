@@ -19,7 +19,7 @@
                   <Font name="System Italic" size="18.0" />
                </font>
             </Label>
-            <Label layoutX="595.0" layoutY="240.0" text="X" textFill="#c63535">
+            <Label fx:id="lockernumber" layoutX="595.0" layoutY="240.0" text="X" textFill="#c63535">
                <font>
                   <Font name="System Italic" size="18.0" />
                </font>
