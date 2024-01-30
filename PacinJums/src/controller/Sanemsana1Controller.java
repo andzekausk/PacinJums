@@ -29,7 +29,6 @@ public class Sanemsana1Controller extends Controller{
 	
 	String pareizais_kods;
 	
-	
 	public void izslegtIevadi() throws IOException {
 		kodaVieta.setEditable(false);
 	}
@@ -84,27 +83,19 @@ public class Sanemsana1Controller extends Controller{
 		try {
 		stmt = c.createStatement();
 	} catch (SQLException e) {
-		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-		//ResultSet rs = null;
-		try {
-			String query = "SELECT * FROM locker WHERE lockercode = ?";
-			//rs = stmt.executeQuery( "SELECT * FROM LOCKER WHERE" + lockerCode + " = ?" );
-			try (PreparedStatement statement = c.prepareStatement(query)) {
-				statement.setString(1, value);
-				try (ResultSet resultset = statement.executeQuery()) {
-//					 StringBuilder resultStringBuilder = new StringBuilder();
-//					 resultStringBuilder.append(resultset.getString("lockercode"));
-//					 return resultStringBuilder.toString();
-					return resultset.getString("lockercode");
-				}
-			
+		ResultSet rs = null;
+			String query = "SELECT * FROM locker WHERE lockercode = "+value+";";
+			try {
+				rs = stmt.executeQuery( query );
+				rs.getInt("lockernumber");
+				return rs.getString("lockercode");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+				return null;
 			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-			return null;
-		}
 
     }
 	
