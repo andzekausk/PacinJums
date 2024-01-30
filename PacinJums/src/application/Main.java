@@ -126,7 +126,8 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		makeConnection();
-//		executeSqlScript("ALTER TABLE PARCEL ADD status TEXT NOT NULL;");
+//		executeSqlScript("UPDATE DRIVER SET surname=\"Godins\" WHERE iddriver=7;");
+		//		executeSqlScript("ALTER TABLE PARCEL ADD status TEXT NOT NULL;");
 //		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
