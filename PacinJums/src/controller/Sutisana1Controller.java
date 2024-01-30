@@ -52,7 +52,7 @@ public class Sutisana1Controller  extends Controller{
 	private Parent root;
 	
 	private String CurrentParcelMachineAddress;
-	private Size izmers = Size.S;
+	private String izmers = "S";
   @FXML
 	private void initialize() {
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getData()));
@@ -64,13 +64,13 @@ public class Sutisana1Controller  extends Controller{
   
 	public void radioPogasIzvele(ActionEvent event) throws IOException {
 		if (radioButtonS.isSelected()) {
-			izmers = Size.S;
+			izmers = "S";
 		}
 		if (radioButtonM.isSelected()) {
-			izmers = Size.M;
+			izmers = "M";
 		}
 		if (radioButtonL.isSelected()) {
-			izmers = Size.L;
+			izmers = "L";
 		}
 	}
 	
@@ -89,13 +89,13 @@ public class Sutisana1Controller  extends Controller{
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
-			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), parcelMachineSelection.getValue());
-			
-			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText());
-			
-			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
-			
-			
+//			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), parcelMachineSelection.getValue());
+			Client jaunsKlients = new Client(0, nosutVards.getText(), nosutUzvards.getText(), "sender",
+					nosutMob.getText(), nosutEpasts.getText(), CurrentParcelMachineAddress, 0);
+//			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText());
+			Client jaunsKlients2 = new Client(0, sanemVards.getText(), sanemUzvards.getText(), "reciever", sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText(), 0);
+//			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
+			Parcel jaunsSutijums = new Parcel(0, "aaa", izmers, 0, 0, jaunsKlients.getIdclient(), jaunsKlients2.getIdclient(), 0, null, "pending");
 			if (jaunsKlients.getName().matches("INVALID") || 
 					jaunsKlients.getSurname().matches("INVALID") ||
 					jaunsKlients.getPhoneNumber().matches("INVALID") ||

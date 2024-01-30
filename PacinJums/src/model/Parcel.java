@@ -31,12 +31,13 @@ public class Parcel {
 	}
 
 	public void setParcelCode(String parcelCode) {
-		if(parcelCode!=null && parcelCode.matches("[A-Z0-9]{3}-[A-Z0-9]{3}-[A-Z0-9]{3}")) {
-			this.parcelCode = parcelCode;	
-		}
-		else {
-			this.parcelCode = "INVALID";
-		}
+//		if(parcelCode!=null && parcelCode.matches("[A-Z0-9]{3}-[A-Z0-9]{3}-[A-Z0-9]{3}")) {
+//			this.parcelCode = parcelCode;	
+//		}
+//		else {
+//			this.parcelCode = "INVALID";
+//		}
+		this.parcelCode = parcelCode;
 	}
 
 	public String getSize() {
