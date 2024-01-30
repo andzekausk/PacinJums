@@ -1,118 +1,71 @@
 package model;
 
 public class Client extends Person{
-
-//	private  int senderID ;
-//	private static int SenderCounter = 1;
-//	private static String senderAddress;
-//	private  int recieverID;
-//	private static int RecieverCounter = 1;
-//	private static String recieverAddress;
-//	
-//	public void setSenderID() {
-//		senderID = SenderCounter;
-//		SenderCounter++;
-//
-//	}
-//	public int getSenderID() {
-//		return senderID;
-//	}
-//	
-//	public static void setSenderAddress(String inputSenderAddress) {
-//		if(inputSenderAddress != null && inputSenderAddress.length() > 3 && inputSenderAddress.matches("[A-Za-z]{1,20}\s[A-Za-z]{1,20}\s[0-9]{1,4}"))
-//		senderAddress = inputSenderAddress;
-//		else {
-//			senderAddress = "Saņēmēja adrese";
-//		}
-//	}
-//	public static String getSenderAddress() {
-//		return senderAddress;
-//	}
-//	
-//	public void setRecieverID() {
-//		recieverID = RecieverCounter;
-//		RecieverCounter++;
-//	}
-//	public int getRecieverID() {
-//		return recieverID;
-//		
-//	}
-//	
-//	public static void setRecieverAddress(String inputRecieverAddress) {
-//		if(inputRecieverAddress != null && inputRecieverAddress.length() > 3 && inputRecieverAddress.matches("[A-Za-z]{1,20}\s[A-Za-z]{1,20}\s[0-9]{1,4}"))
-//			recieverAddress = inputRecieverAddress;
-//		else {
-//			recieverAddress = "Sutītāja adrese";
-//		}
-//		
-//	}
-//	public static String getRecieverAddress() {
-//		return recieverAddress;
-//	}
-//
-//	public Client() {
-//		super();
-//		setSenderID();
-//		setSenderAddress(null);
-//		setRecieverID();
-//		setRecieverAddress(null);
-//	}
-//
-//	public Client (String name, String surname, String personCode, String phoneNumber, String emailAdress,
-//			 String inputSenderAddress, String inputRecieverAddress) {
-//		
-//		super(name, surname, personCode, phoneNumber, emailAdress);
-//		setSenderID();
-//		setSenderAddress(inputSenderAddress);
-//		setRecieverID();
-//		setRecieverAddress(inputRecieverAddress);
-//		
-//	}
-//	
-//	public String toString() {
-//		return super.toString() + "   |   " + "No adreses:" + senderAddress + " (ID:" + senderID +
-//				") Uz adresi: " + recieverAddress + " (ID:" + recieverID + ")";
-//	}
 	
-	private  int clientID ;
-	private static int counter = 1;
+	private int idclient;
+	private String clientType;
 	private String address;
-	
-	public void setClientID() {
-		clientID = counter;
-		counter++;
+	private int idcompany;
 
-	}
-	public int getClientID() {
-		return clientID;
-	}
 	
-	public void setAddress(String inputAddress) {
-		if(inputAddress != null && inputAddress.length() > 3 && inputAddress.matches("[A-Za-z]{1,20}\s[A-Za-z]{1,20}\s[0-9]{1,4}"))
-		address = inputAddress;
-		else {
-			address = "Nav adrese";
-		}
-	}
 	
+	public int getIdclient() {
+		return idclient;
+	}
+	public void setIdclient(int idclient) {
+		if (idclient > 0)
+			this.idclient = idclient;
+		else
+			this.idclient = -1;
+	}
+	public String getClientType() {
+		return clientType;
+	}
+	public void setClientType(String clientType) {
+		if (clientType != null && (clientType.matches("sender") || clientType.matches("reciever")))
+			this.clientType = clientType;
+		else
+			this.clientType = "INVALID";
+	}
 	public String getAddress() {
 		return address;
 	}
-	public Client() {
-		super();
-		setClientID();
-		setAddress(null);
+	public void setAddress(String address) {
+		if (address != null && address.matches("^[ a-zA-Z]+[0-9a-z]{1,5}[- ]{1}[0-9a-zA-Z]{0,5}$")) {
+			this.address = address;
+		} else {
+			this.address = "INVALID";
+		}
 	}
-
-	public Client (String name, String surname, /*String personCode,*/ String phoneNumber, String emailAdress,
-			 String inputAddress) {
-		
-		super(name, surname, /*personCode,*/ phoneNumber, emailAdress);
-		setClientID();
-		setAddress(inputAddress);		
+	public int getIdcompany() {
+		return idcompany;
+	}
+	public void setIdcompany(int idcompany) {
+		if (idcompany > 0)
+			this.idcompany = idcompany;
+		else
+			this.idcompany = -1;
 	}
 	
-	public String toString() {
-		return super.toString() + "   |   " + "Client address:" + address + " (Client ID:" + clientID + ")";
+	public Client() {
+		super();
+		setIdclient(0);
+		setClientType(null);
+		setAddress(null);
+		setIdcompany(0);
 	}
+	public Client(int idclient, String name, String surname, String clientType, String phoneNumber, String email, String address, int idcompany) {
+		super(name, surname, phoneNumber, email);
+		setIdclient(idclient);
+		setClientType(clientType);
+		setAddress(address);
+		setIdcompany(idcompany);
+	}
+	
+	@Override
+	public String toString() {
+		return "Client [idclient=" + idclient + ", clientType=" + clientType + ", address=" + address + ", idcompany="
+				+ idcompany + "]";
+	}
+	
 }

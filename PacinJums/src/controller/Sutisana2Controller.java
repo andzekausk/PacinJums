@@ -43,7 +43,7 @@ public class Sutisana2Controller extends Controller {
         aizpilditsVards.setText(jaunsKlients.getName());
         aizpilditsUzvards.setText(jaunsKlients.getSurname());
         aizpilditsMob.setText(jaunsKlients.getPhoneNumber());
-        aizpilditsEpasts.setText(jaunsKlients.getEmailAdress());
+        aizpilditsEpasts.setText(jaunsKlients.getEmail());
         aizpilditaAdrese.setText(jaunsKlients.getAddress());
     }
 	public void setJaunsKlients2(Client jaunsKlients2) throws IOException {
@@ -51,7 +51,7 @@ public class Sutisana2Controller extends Controller {
         aizpilditsVards2.setText(jaunsKlients2.getName());
         aizpilditsUzvards2.setText(jaunsKlients2.getSurname());
         aizpilditsMob2.setText(jaunsKlients2.getPhoneNumber());
-        aizpilditsEpasts2.setText(jaunsKlients2.getEmailAdress());
+        aizpilditsEpasts2.setText(jaunsKlients2.getEmail());
         aizpilditaAdrese2.setText(jaunsKlients2.getAddress());
     }
 //	public void setJaunsKlients2(Client jaunsKlients2) {

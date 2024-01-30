@@ -1,17 +1,27 @@
 package model;
 
-public class Company extends Client {
+public class Company {
 
+	private int idcompany;
 	private String companyName;
 	private String pvnNumber;
 	private String companyAddress;
+
+	
+	public int getIdcompany() {
+		return idcompany;
+	}
+
+	public void setIdcompany(int idcompany) {
+		this.idcompany = idcompany;
+	}
 
 	public void setCompanyName(String inputCompanyName) {
 		if (inputCompanyName != null && inputCompanyName.length() > 2
 				&& inputCompanyName.matches("^[a-zA-Z0-9\\s][^|=]*$"))
 			companyName = inputCompanyName;
 		else {
-			companyName = "Incorrect name";
+			companyName = "INVALID";
 		}
 	}
 
@@ -23,7 +33,7 @@ public class Company extends Client {
 		if (inputPvnNumber != null && inputPvnNumber.length() == 13 && inputPvnNumber.matches("LV[0-9]{11}"))
 			pvnNumber = inputPvnNumber;
 		else {
-			pvnNumber = "Incorrect pvnNumber";
+			pvnNumber = "INVALID";
 		}
 	}
 
@@ -40,27 +50,23 @@ public class Company extends Client {
 		if (companyAddress != null && companyAddress.matches("^[ a-zA-Z]+[0-9a-z]{1,5}[- ]{1}[0-9a-zA-Z]{0,5}$")) {
 			this.companyAddress = companyAddress;
 		} else {
-			this.companyAddress = "incorrect address";
+			this.companyAddress = "INVALID";
 		}
 	}
 
 	public Company() {
-		super();
+		setIdcompany(0);
 		setCompanyName(null);
 		setPvnNumber(null);
 		setCompanyAddress(null);
 	}
 	
-	public Company(String name, String surname, String phoneNumber, String emailAdress,
-			String inputAddress, String inputCompanyName, String inputPvnNumber, String companyAddress) {
-		super(name, surname, /*personCode,*/ phoneNumber, emailAdress, inputAddress);
+	public Company(int idcompany, String inputCompanyName, String inputPvnNumber, String companyAddress) {
+		setIdcompany(idcompany);
 		setCompanyName(inputCompanyName);
 		setPvnNumber(inputPvnNumber);
 		setCompanyAddress(companyAddress);
 	}
 
-	public String toString() {
-
-		return super.toString() + "\nUzņēmuma nosaukums: " + companyName + "\nPVN nummurs: " + pvnNumber;
-	}
+	
 }

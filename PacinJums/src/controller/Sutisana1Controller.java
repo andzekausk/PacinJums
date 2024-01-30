@@ -51,10 +51,15 @@ public class Sutisana1Controller  extends Controller{
 	private Scene scene;
 	private Parent root;
 	
+	private String CurrentParcelMachineAddress;
 	private Size izmers = Size.S;
   @FXML
 	private void initialize() {
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getData()));
+		parcelMachineSelection.getSelectionModel().selectFirst();
+		CurrentParcelMachineAddress = parcelMachineSelection.getValue();
+
+
 	}
   
 	public void radioPogasIzvele(ActionEvent event) throws IOException {
@@ -67,6 +72,12 @@ public class Sutisana1Controller  extends Controller{
 		if (radioButtonL.isSelected()) {
 			izmers = Size.L;
 		}
+	}
+	
+	@FXML
+	private void parcelMachineSelected(ActionEvent event) {
+		CurrentParcelMachineAddress = parcelMachineSelection.getValue();
+		System.out.println(CurrentParcelMachineAddress);
 	}
 	
 	public void sutit(ActionEvent event) throws IOException {
@@ -85,15 +96,15 @@ public class Sutisana1Controller  extends Controller{
 			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
 			
 			
-			if (jaunsKlients.getName().matches("Vards") || 
-					jaunsKlients.getSurname().matches("Uzvards") ||
-					jaunsKlients.getPhoneNumber().matches("12345678") ||
-					jaunsKlients.getEmailAdress().matches("epasts@epasts.lv")||
-					jaunsKlients2.getName().matches("Vards") || 
-					jaunsKlients2.getSurname().matches("Uzvards") ||
-					jaunsKlients2.getPhoneNumber().matches("12345678") ||
-					jaunsKlients2.getEmailAdress().matches("epasts@epasts.lv") ||
-					jaunsKlients2.getAddress().matches("Nav adrese")) {
+			if (jaunsKlients.getName().matches("INVALID") || 
+					jaunsKlients.getSurname().matches("INVALID") ||
+					jaunsKlients.getPhoneNumber().matches("INVALID") ||
+					jaunsKlients.getEmail().matches("INVALID")||
+					jaunsKlients2.getName().matches("INVALID") || 
+					jaunsKlients2.getSurname().matches("INVALID") ||
+					jaunsKlients2.getPhoneNumber().matches("INVALID") ||
+					jaunsKlients2.getEmail().matches("INVALID") ||
+					jaunsKlients2.getAddress().matches("INVALID")) {
 				vietaZinai.setText("Nekorekta datu ievade");
 			}
 			else {

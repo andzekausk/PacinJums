@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 import model.Client;
 import model.Company;
 import model.Driver;
-import model.Employee;
+//import model.Employee;
 import model.Parcel;
 import model.ParcelMachine;
 import model.ParcelMachineLocation;
@@ -126,6 +126,7 @@ public class Main extends Application {
 	
 	public static void main(String[] args) {
 		makeConnection();
+//		executeSqlScript("ALTER TABLE PARCEL ADD status TEXT NOT NULL;");
 //		executeSqlScript("UPDATE LOCKER SET lockercode=234567 WHERE idlocker=1;");
 //		executeSqlScript(sqlCreateSkapisi);
 //		executeSqlScript("DROP TABLE CLIENT");
@@ -146,10 +147,10 @@ public class Main extends Application {
 
 		
 //		ParcelMachine pm1 = new ParcelMachine(ParcelMachineLocation.Bauska, "wassabi iela 12", 60, 20, 10);
-		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
-		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
+//		Client sender1 = new Client("Cils", "Veks", /*"301199-11111",*/ "21234567", "hallo@gmail.com", "Lielais prospekts 20");
+//		Client reciever1 = new Client("Pers", "Ona", /*"301100-22222",*/ "22345678", "ahoy@gmail.com", "mazais prospekts 20");
 //		Parcel parcel1 = new Parcel(pm1, sender1, reciever1, Size.S, true, false, ParcelStatus.Pending, true);
-		Parcel parcel1 = new Parcel(sender1, reciever1, Size.S , true, ParcelStatus.Pending, false);
+//		Parcel parcel1 = new Parcel(sender1, reciever1, Size.S , true, ParcelStatus.Pending, false);
 //		System.out.println(parcel1);
 //		System.out.println(pm1);
 //		pm1.placeParcel(parcel1);
