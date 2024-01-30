@@ -152,7 +152,7 @@
                   </VBox>
                </children>
             </HBox>
-            <ComboBox fx:id="parcelMachineSelection" layoutX="991.0" layoutY="223.0" prefWidth="150.0" promptText="Izvēlieties pakomatu" />
+            <ComboBox fx:id="parcelMachineSelection" layoutX="991.0" layoutY="223.0" onAction="#parcelMachineSelected" prefWidth="150.0" promptText="Izvēlieties pakomatu" />
          </children>
       </AnchorPane>
    </children>

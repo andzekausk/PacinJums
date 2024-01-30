@@ -32,8 +32,8 @@ public class Sutisana4Controller extends Controller{
 		this.jaunsKlients2 = jaunsKlients2;
 	}
 	public void editJaunsPasutijums(Parcel jaunsSutijums) {
-		jaunsSutijums.setSender(jaunsKlients);
-		jaunsSutijums.setReciever(jaunsKlients2);
+		jaunsSutijums.setIdsender(jaunsKlients.getIdclient());
+		jaunsSutijums.setIdreciever(jaunsKlients2.getIdclient());
 		System.out.println(jaunsSutijums);
 	}
 	

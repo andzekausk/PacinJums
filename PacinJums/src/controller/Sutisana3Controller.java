@@ -33,7 +33,7 @@ public class Sutisana3Controller extends Controller{
 //}
 //
 	public void paidJaunsPasutijums(Parcel jaunsSutijums) throws IOException {
-		jaunsSutijums.setIsPaid(true);
+		jaunsSutijums.setIsPaid(1);
 //		
 //		 FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/Sutisana4.fxml"));
 //			

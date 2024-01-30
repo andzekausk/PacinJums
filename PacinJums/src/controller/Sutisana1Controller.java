@@ -51,22 +51,33 @@ public class Sutisana1Controller  extends Controller{
 	private Scene scene;
 	private Parent root;
 	
-	private Size izmers = Size.S;
+	private String CurrentParcelMachineAddress;
+	private String izmers = "S";
   @FXML
 	private void initialize() {
 		parcelMachineSelection.setItems(FXCollections.observableArrayList(getData()));
+		parcelMachineSelection.getSelectionModel().selectFirst();
+		CurrentParcelMachineAddress = parcelMachineSelection.getValue();
+
+
 	}
   
 	public void radioPogasIzvele(ActionEvent event) throws IOException {
 		if (radioButtonS.isSelected()) {
-			izmers = Size.S;
+			izmers = "S";
 		}
 		if (radioButtonM.isSelected()) {
-			izmers = Size.M;
+			izmers = "M";
 		}
 		if (radioButtonL.isSelected()) {
-			izmers = Size.L;
+			izmers = "L";
 		}
+	}
+	
+	@FXML
+	private void parcelMachineSelected(ActionEvent event) {
+		CurrentParcelMachineAddress = parcelMachineSelection.getValue();
+		System.out.println(CurrentParcelMachineAddress);
 	}
 	
 	public void sutit(ActionEvent event) throws IOException {
@@ -78,22 +89,22 @@ public class Sutisana1Controller  extends Controller{
 			vietaZinai.setText("Aizpildi visus laukumus!");
 		}
 		else {
-			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), parcelMachineSelection.getValue());
-			
-			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText());
-			
-			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
-			
-			
-			if (jaunsKlients.getName().matches("Vards") || 
-					jaunsKlients.getSurname().matches("Uzvards") ||
-					jaunsKlients.getPhoneNumber().matches("12345678") ||
-					jaunsKlients.getEmailAdress().matches("epasts@epasts.lv")||
-					jaunsKlients2.getName().matches("Vards") || 
-					jaunsKlients2.getSurname().matches("Uzvards") ||
-					jaunsKlients2.getPhoneNumber().matches("12345678") ||
-					jaunsKlients2.getEmailAdress().matches("epasts@epasts.lv") ||
-					jaunsKlients2.getAddress().matches("Nav adrese")) {
+//			Client jaunsKlients = new Client(nosutVards.getText(), nosutUzvards.getText(), nosutMob.getText(), nosutEpasts.getText(), parcelMachineSelection.getValue());
+			Client jaunsKlients = new Client(0, nosutVards.getText(), nosutUzvards.getText(), "sender",
+					nosutMob.getText(), nosutEpasts.getText(), CurrentParcelMachineAddress, 0);
+//			Client jaunsKlients2 = new Client(sanemVards.getText(), sanemUzvards.getText(), sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText());
+			Client jaunsKlients2 = new Client(0, sanemVards.getText(), sanemUzvards.getText(), "reciever", sanemMob.getText(), sanemEpasts.getText(), sanemAdrese.getText(), 0);
+//			Parcel jaunsSutijums = new Parcel(jaunsKlients, jaunsKlients2, izmers , false, ParcelStatus.Pending, true);
+			Parcel jaunsSutijums = new Parcel(0, "aaa", izmers, 0, 0, jaunsKlients.getIdclient(), jaunsKlients2.getIdclient(), 0, null, "pending");
+			if (jaunsKlients.getName().matches("INVALID") || 
+					jaunsKlients.getSurname().matches("INVALID") ||
+					jaunsKlients.getPhoneNumber().matches("INVALID") ||
+					jaunsKlients.getEmail().matches("INVALID")||
+					jaunsKlients2.getName().matches("INVALID") || 
+					jaunsKlients2.getSurname().matches("INVALID") ||
+					jaunsKlients2.getPhoneNumber().matches("INVALID") ||
+					jaunsKlients2.getEmail().matches("INVALID") ||
+					jaunsKlients2.getAddress().matches("INVALID")) {
 				vietaZinai.setText("Nekorekta datu ievade");
 			}
 			else {

@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class Locker {
 	private int idlocker;
 	private int lockerNumber;

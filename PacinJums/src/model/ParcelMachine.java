@@ -39,6 +39,9 @@ public class ParcelMachine {
 		if (workingRegion != null && (workingRegion.matches("Riga") || workingRegion.matches("Kurzeme")
 				|| workingRegion.matches("Vidzeme") || workingRegion.matches("Zemgale") || workingRegion.matches("Latgale")))
 			this.workingRegion = workingRegion;
+		else {
+			this.workingRegion = "INVALID";
+		}
 	}
 
 	public ParcelMachine() {
