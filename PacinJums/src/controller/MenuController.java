@@ -69,6 +69,6 @@ public class MenuController extends Controller{
 //		stage.show();
 //	}
 	public void dotiesUzTestu(ActionEvent event) throws IOException {
-		changeScene(testaVide, "/application/TestaVide1.fxml");
+		changeScene(testaVide, "/application/Admin.fxml");
 	}
 }

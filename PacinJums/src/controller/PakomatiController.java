@@ -50,13 +50,13 @@ public class PakomatiController extends Controller {
 		case "Ventspils Iela 5, Kurzeme":
 			selected = 1;
 			break;
-		case "Baložu iela 69, Vidzeme":
+		case "Balozu iela 68, Vidzeme":
 			selected = 2;
 			break;
 		case "Sanatorijas Iela 7, Zemgale":
 			selected = 3;
 			break;
-		case "Ģenerāļa Bulvāris 70, Latgale":
+		case "Generala Bulvaris 70, Latgale":
 			selected = 4;
 			break;
 		case "Ventspils Iela 45, Riga":
